@@ -14,15 +14,15 @@ export default async function Home() {
       <section className="relative overflow-hidden bg-craie pt-16 pb-28">
         <div className="container-roc grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <p className="eyebrow">Agence indépendante à Colmar · depuis 2016</p>
+            <p className="eyebrow">Agence indépendante en Côte d'Ivoire · depuis 2016</p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.08] text-ardoise sm:text-5xl">
-              L'immobilier alsacien,
+              L'immobilier ivoirien,
               <br />
-              conseillé avec exigence.
+              conseillé avec exigence et dilligence.
             </h1>
             <p className="mt-5 max-w-md text-base text-encre/75">
-              ROC Immobilier accompagne particuliers et investisseurs à Colmar et dans le
-              Haut-Rhin : vente, achat, location et gestion locative, avec la même rigueur
+              ROC Immobilier Services accompagne particuliers et investisseurs à Abidjan et sur toute l'étendue 
+              du territoire ivoirien : vente, achat, location et gestion locative, avec la même rigueur
               à chaque étape.
             </p>
 
@@ -31,7 +31,7 @@ export default async function Home() {
             </div>
 
             <p className="mt-4 text-xs text-encre/50">
-              Exemple : « Maison à Colmar », « Appartement à Wintzenheim »…
+              Exemple : « Maison à la Riviera 5 », « Appartement à Bingerville »…
             </p>
           </div>
 
@@ -64,9 +64,9 @@ export default async function Home() {
       <section className="border-y border-ligne bg-ardoise text-craie-100">
         <div className="container-roc grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
           {[
-            ["9 ans", "d'expertise locale"],
+            ["10 ans", "d'expertise locale"],
             ["100%", "biens vérifiés & agréés"],
-            ["24h", "délai moyen de réponse"],
+            ["24h/5", "délai moyen de réponse"],
             ["4/4", "activités : vente, achat, location, gestion"],
           ].map(([value, label]) => (
             <div key={label}>
