@@ -28,7 +28,7 @@ export default function ContactPage() {
             title="Localisation de l'agence ROC Immobilier à Abidjan"
             className="h-full w-full"
             loading="lazy"
-            src="https://www.openstreetmap.org/search?query=Abidjan+Genie+2000&zoom=6&minlon=-19.62158203125&minlat=1.2303741774326145&maxlon=0.81298828125&maxlat=13.795406203132826#map=15/5.36980/-3.93521"
+            src="https://www.openstreetmap.org/?#map=15/5.36980/-3.94057"
           />
         </div>
       </div>
