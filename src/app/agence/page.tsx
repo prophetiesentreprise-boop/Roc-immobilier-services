@@ -18,13 +18,18 @@ export default function AgencePage() {
         <div>
           <p className="text-sm leading-relaxed text-encre/80">
             Depuis sa création en août 2016, ROC Immobilier accompagne les particuliers et
-            investisseurs de Colmar et de sa région dans leurs projets de vente, d'achat, de
+            investisseurs dà Abidjan et dans toute la Côte d'Ivoire dans leurs projets de vente, d'achat, de
             location et de gestion locative. Notre agrément d'État et notre affiliation à la
             Chambre du Droit des Affaires et de l'Immobilier (CDAIM) garantissent un exercice
             transparent et conforme à la réglementation.
+            Depuis notre création en août 2016, notre agence immobilière s’est vue accorder l’agrément de l’État, 
+            témoignant ainsi de notre fiabilité. Notre affiliation à la Chambre du Droit des Affaires et de l’Immobilier (CDAIM) souligne notre engagement indéfectible envers l’éthique et la transparence.  
+            Nous sommes spécialisés dans la vente, l’achat et la location de biens immobiliers. Que vous recherchiez la maison de vos rêves, souhaitiez investir dans une propriété ou trouver un espace
+             locatif adapté à vos besoins, nous sommes là pour vous accompagner à chaque étape du processus. Notre professionnalisme ainsi que la qualité de nos services ont été reconnus par notre secteur.
+              Ce qui nous rend apte à pouvoir répondre à vos attentes.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-encre/80">
-            Notre équipe combine une connaissance fine du marché haut-rhinois avec une
+            Notre équipe combine une connaissance fine du marché ivoirien avec une
             approche personnalisée : nous prenons le temps de comprendre chaque projet avant
             de proposer une solution.
           </p>
@@ -32,8 +37,8 @@ export default function AgencePage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {[
               [ShieldCheck, "Agréments", "Carte professionnelle, garantie financière et assurance RCP à jour."],
-              [Users, "Équipe locale", "Des conseillers spécialisés vente, location et gestion, basés à Colmar."],
-              [Award, "9 ans d'expérience", "Une expertise construite sur le terrain, secteur par secteur."],
+              [Users, "Équipe locale", "Des conseillers spécialisés vente, location et gestion, basés à Abidjan."],
+              [Award, "Une décennie d'expérience", "Une expertise construite sur le terrain, secteur par secteur."],
             ].map(([Icon, title, text]: any) => (
               <div key={title} className="rounded-sm border border-ligne bg-craie-100 p-5">
                 <Icon className="text-pinot" size={22} />

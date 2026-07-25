@@ -10,34 +10,39 @@ export default function MentionsLegalesPage() {
 
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-encre/80">
         <p>
-          <strong className="text-ardoise">Éditeur du site :</strong> ROC Immobilier — [forme
-          juridique à compléter], [capital social], [numéro SIRET] — 25 rue de Mulhouse,
-          68000 Colmar.
+          <strong className="text-ardoise">Éditeur du site :</strong> ROC Immobilier Services —  [SARL
+          ], [10 000 000 F CFA], [numéro d'Agrément Ministériel : N° 19-00046/ 24-00113] —Abidjan- Cocody Genie 2000,  Non loin de Playce Palmeraie
+           - 06 BP 740 Abidjan 06. Abidjan - Côte d'Ivoire. (+225) 05 04 66 70 39 · (+225) 05 64 59 69 23. .
         </p>
         <p>
-          <strong className="text-ardoise">Carte professionnelle :</strong> [numéro et
-          préfecture de délivrance à compléter] — Garantie financière : [organisme et
+          <strong className="text-ardoise">Carte professionnelle :</strong> [Ministère de la Construction, du Logement et de l'Urbanisme: 
+          arrêté officiel portant agrément d'agent immobilier.numéro 24-00113.
+          ce document juridique qui lui donne légalement le droit d'exercer les activités suivantes sur tout le territoire ivoirien :
+          La gestion locative
+          L'achat et la vente de biens.
+          Le conseil et l'intermédiation immobilière
+         ] — Garantie financière : [organisme et
           montant à compléter].
         </p>
         <p>
-          <strong className="text-ardoise">Directeur de la publication :</strong> [nom à
-          compléter].
+          <strong className="text-ardoise">Directeur de la publication :</strong> [Mme Eba Maeva
+          ].
         </p>
         <p>
-          <strong className="text-ardoise">Hébergement :</strong> [nom et adresse de
-          l'hébergeur à compléter, ex. Vercel Inc.].
+          <strong className="text-ardoise">Hébergement :</strong> [
+          Vercel Inc.].
         </p>
         <p>
           <strong className="text-ardoise">Protection des données (RGPD) :</strong> les
           informations recueillies via les formulaires de ce site sont destinées à ROC
-          Immobilier pour le traitement de votre demande. Conformément au Règlement Général
+          Immobilier Services pour le traitement de votre demande. Conformément au Règlement Général
           sur la Protection des Données, vous disposez d'un droit d'accès, de rectification
-          et de suppression de vos données, à exercer par e-mail à contact@rocimmobilierservice.com.
+          et de suppression de vos données, à exercer par e-mail à info@rocimmobilierservice.ci.
         </p>
         <p className="rounded-sm border border-ligne bg-craie-100 p-4 text-xs text-encre/60">
           Cette page est un modèle de départ. Faites-la valider par un professionnel du
           droit avant la mise en ligne définitive, afin de vous assurer qu'elle est complète
-          et conforme à votre situation (SIRET, carte professionnelle, politique de
+          et conforme à votre situation (SIRET, politique de
           confidentialité détaillée, gestion des cookies).
         </p>
       </div>

@@ -40,9 +40,10 @@ export function Footer() {
           <div>
             <p className="eyebrow text-colombage">Nous contacter</p>
             <ul className="mt-3 space-y-2 text-sm text-craie-100/80">
-              <li>25 rue de Mulhouse, 68000 Colmar</li>
-              <li>03 89 00 00 00</li>
-              <li>contact@rocimmobilierservice.com</li>
+              <li>Abidjan – Cocody - Genie 2000, non loin de Playce Palmeraie</li>
+              <li>+225 05 76 83 84 84</li>
+              <li>06 BP 740 ABIDJAN 06</li>
+              <li> info@rocimmobilierservices.com</li>
             </ul>
           </div>
         </div>
