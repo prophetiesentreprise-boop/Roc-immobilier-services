@@ -26,6 +26,7 @@ export const demoProperties: Property[] = [
     status: "disponible",
     featured: true,
     cover_color: "#8B5A34",
+    photos: [],
     created_at: "2026-06-01T09:00:00Z",
   },
   {
@@ -48,6 +49,7 @@ export const demoProperties: Property[] = [
     status: "disponible",
     featured: true,
     cover_color: "#5F6F52",
+    photos: [],
     created_at: "2026-06-05T09:00:00Z",
   },
   {
@@ -70,6 +72,7 @@ export const demoProperties: Property[] = [
     status: "disponible",
     featured: true,
     cover_color: "#202B38",
+    photos: [],
     created_at: "2026-06-10T09:00:00Z",
   },
   {
@@ -92,6 +95,7 @@ export const demoProperties: Property[] = [
     status: "disponible",
     featured: false,
     cover_color: "#6E2A34",
+    photos: [],
     created_at: "2026-06-12T09:00:00Z",
   },
   {
@@ -114,6 +118,7 @@ export const demoProperties: Property[] = [
     status: "disponible",
     featured: false,
     cover_color: "#8B5A34",
+    photos: [],
     created_at: "2026-06-14T09:00:00Z",
   },
   {
@@ -136,6 +141,7 @@ export const demoProperties: Property[] = [
     status: "disponible",
     featured: false,
     cover_color: "#5F6F52",
+    photos: [],
     created_at: "2026-06-16T09:00:00Z",
   },
 ];

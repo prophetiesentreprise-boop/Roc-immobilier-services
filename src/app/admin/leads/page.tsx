@@ -63,6 +63,15 @@ export default async function AdminLeadsPage() {
             </div>
 
             {lead.message && <p className="mt-3 text-sm text-encre/80">{lead.message}</p>}
+
+            {lead.photos && lead.photos.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {lead.photos.map((url) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={url} src={url} alt="" className="h-16 w-16 rounded-sm border border-ligne object-cover" />
+                ))}
+              </div>
+            )}
           </div>
         ))}
 

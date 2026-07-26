@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
-import { MapPin, Ruler, BedDouble, DoorOpen, Leaf, CalendarCheck } from "lucide-react";
+import { MapPin, Ruler, BedDouble, DoorOpen, Leaf, CalendarCheck, MessageCircle } from "lucide-react";
 import { getPropertyBySlug } from "@/lib/properties";
 import { formatPrice } from "@/lib/format";
 import { RooflineMotif } from "@/components/RooflineMotif";
 import { LeadForm } from "@/components/LeadForm";
+import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { whatsappLink } from "@/lib/site-config";
-import { MessageCircle } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,15 +21,23 @@ export default async function PropertyPage({ params }: PageProps) {
     E: "#e79b3a", F: "#d9662f", G: "#c23b3b",
   };
 
+  const hasPhotos = property.photos && property.photos.length > 0;
+
   return (
     <div>
-      <div
-        className="relative h-72 sm:h-96"
-        style={{ background: `linear-gradient(160deg, ${property.cover_color} 0%, #202B38 130%)` }}
-      >
-        <RooflineMotif className="absolute bottom-0 left-0 w-full h-24 text-craie-100/10" />
-        <div className="container-roc absolute bottom-6 left-1/2 -translate-x-1/2">
-          <span className="eyebrow rounded-sm bg-craie-100 px-2 py-1 text-[0.65rem] text-ardoise">
+      {hasPhotos ? (
+        <PhotoCarousel photos={property.photos} alt={property.title} />
+      ) : (
+        <div
+          className="relative h-72 sm:h-96"
+          style={{ background: `linear-gradient(160deg, ${property.cover_color} 0%, #202B38 130%)` }}
+        >
+          <RooflineMotif className="absolute bottom-0 left-0 w-full h-24 text-craie-100/10" />
+        </div>
+      )}
+      <div className="border-b border-ligne bg-craie-100 py-2">
+        <div className="container-roc">
+          <span className="eyebrow rounded-sm bg-ardoise px-2 py-1 text-[0.65rem] text-craie-100">
             {property.kind === "vente" ? "À vendre" : "À louer"} · {property.status === "disponible" ? "Disponible" : property.status}
           </span>
         </div>

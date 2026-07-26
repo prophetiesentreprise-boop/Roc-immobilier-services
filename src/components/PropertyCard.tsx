@@ -12,11 +12,18 @@ export function PropertyCard({ property }: { property: Property }) {
     >
       <div
         className="relative h-52 overflow-hidden"
-        style={{
-          background: `linear-gradient(160deg, ${property.cover_color} 0%, #202b38 130%)`,
-        }}
+        style={
+          property.photos?.[0]
+            ? undefined
+            : { background: `linear-gradient(160deg, ${property.cover_color} 0%, #202b38 130%)` }
+        }
       >
-        <RooflineMotif className="absolute bottom-0 left-0 w-full h-16 text-craie-100/15" />
+        {property.photos?.[0] ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={property.photos[0]} alt={property.title} className="h-full w-full object-cover" />
+        ) : (
+          <RooflineMotif className="absolute bottom-0 left-0 w-full h-16 text-craie-100/15" />
+        )}
         <div className="absolute top-3 left-3 flex gap-2">
           <span className="eyebrow rounded-sm bg-craie-100 px-2 py-1 text-[0.65rem] text-ardoise">
             {property.kind === "vente" ? "À vendre" : "À louer"}

@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
+import { PhotoUploader } from "@/components/PhotoUploader";
 
 export function EstimateForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [photos, setPhotos] = useState<string[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,6 +29,7 @@ export function EstimateForm() {
       email: form.get("email"),
       phone: form.get("phone"),
       message: details,
+      photos,
     };
 
     try {
@@ -129,10 +132,13 @@ export function EstimateForm() {
         />
       </div>
 
-      <p className="text-xs text-encre/45">
-        L'ajout de photos à votre demande d'estimation sera bientôt possible directement
-        depuis ce formulaire.
-      </p>
+      <div className="rounded-sm border border-ligne bg-craie p-4">
+        <PhotoUploader photos={photos} onChange={setPhotos} folder="leads" maxPhotos={8} />
+        <p className="mt-2 text-xs text-encre/45">
+          Quelques photos du bien aident notre équipe à affiner l'estimation avant même
+          la visite d'expertise.
+        </p>
+      </div>
 
       <button type="submit" disabled={status === "loading"} className="btn-primary w-fit text-sm">
         {status === "loading" && <Loader2 className="animate-spin" size={16} />}

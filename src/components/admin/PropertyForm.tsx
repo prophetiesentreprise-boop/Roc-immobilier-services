@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Loader2, Trash2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { Property } from "@/lib/types";
+import { PhotoUploader } from "@/components/PhotoUploader";
 
 function slugify(text: string) {
   return text
@@ -21,6 +22,7 @@ export function PropertyForm({ property }: { property?: Property }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [photos, setPhotos] = useState<string[]>(property?.photos ?? []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -56,6 +58,7 @@ export function PropertyForm({ property }: { property?: Property }) {
       status: form.get("status"),
       featured: form.get("featured") === "on",
       cover_color: property?.cover_color ?? ACCENTS[Math.floor(Math.random() * ACCENTS.length)],
+      photos,
     };
 
     const { error } = property
@@ -116,7 +119,7 @@ export function PropertyForm({ property }: { property?: Property }) {
 
       <div className="grid gap-4 sm:grid-cols-3">
         <div>
-          <label className="eyebrow mb-1 block">Prix (€) *</label>
+          <label className="eyebrow mb-1 block">Prix (FCFA) *</label>
           <input type="number" name="price" required defaultValue={property?.price} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
         </div>
         <div>
@@ -157,6 +160,10 @@ export function PropertyForm({ property }: { property?: Property }) {
             {["A", "B", "C", "D", "E", "F", "G"].map((l) => <option key={l} value={l}>{l}</option>)}
           </select>
         </div>
+      </div>
+
+      <div className="rounded-sm border border-ligne bg-craie p-4">
+        <PhotoUploader photos={photos} onChange={setPhotos} folder="properties" />
       </div>
 
       <div>

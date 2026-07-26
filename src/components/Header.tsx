@@ -41,7 +41,7 @@ export function Header() {
             <Phone size={16} className="text-pinot" />
             {siteConfig.phoneDisplay}
           </a>
-          <Link href="/contact" className="btn-primary text-sm">
+          <Link href="/rdv" className="btn-primary text-sm">
             Prendre RDV
           </Link>
         </div>
@@ -69,7 +69,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary mt-4 text-sm" onClick={() => setOpen(false)}>
+            <Link href="/rdv" className="btn-primary mt-4 text-sm" onClick={() => setOpen(false)}>
               Prendre RDV
             </Link>
           </div>

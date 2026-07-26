@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, Building2, Inbox, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Building2, Inbox, CalendarClock, ExternalLink } from "lucide-react";
 import { SignOutButton } from "@/components/admin/SignOutButton";
 
 export const metadata = { title: "Espace professionnel — ROC Immobilier" };
@@ -8,6 +8,7 @@ const NAV = [
   { href: "/admin", label: "Tableau de bord", icon: LayoutDashboard },
   { href: "/admin/biens", label: "Biens", icon: Building2 },
   { href: "/admin/leads", label: "Demandes reçues", icon: Inbox },
+  { href: "/admin/rdv", label: "Rendez-vous", icon: CalendarClock },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

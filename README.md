@@ -46,23 +46,26 @@ Puis ouvrez http://localhost:3000
 ## Fonctionnalités incluses
 
 - Recherche de biens avec filtres (ville, type, budget)
-- Fiches biens détaillées (DPE/GES, points forts, formulaire de visite)
+- Fiches biens détaillées (DPE/GES, points forts, carrousel de photos, formulaire de visite)
+- Upload de photos multiples (biens et demandes d'estimation) via Supabase Storage
 - Formulaires connectés (contact, estimation, demande de visite)
-- Back-office : connexion sécurisée, ajout/modification/suppression de biens,
-  suivi des demandes reçues
+- Page de prise de rendez-vous dédiée, avec règle des 48h minimum (vérifiée aussi côté serveur)
+- Notifications e-mail optionnelles vers l'agence (via Resend, voir PHASE_2.md)
+- Liens WhatsApp directs (contact, fiche bien, confirmation de RDV)
+- Chatbot à menus guidés pour orienter les visiteurs
+- Back-office : connexion sécurisée, gestion des biens (avec photos), suivi des
+  demandes et des rendez-vous
 - Design entièrement personnalisé (pas un thème générique)
 - Responsive (mobile, tablette, ordinateur)
 
-## Fonctionnalités volontairement laissées pour une phase 2
-
-Pour tenir un délai de 10 jours avec une base saine, ces éléments du cahier des charges
-initial ne sont pas encore inclus. Ils s'ajoutent sans tout reconstruire :
+## Fonctionnalités volontairement laissées pour une phase 3
 
 - Diffusion automatique vers les portails (SeLoger, Leboncoin, Bien'ici…)
 - Signature électronique des mandats/baux
 - Espace client propriétaire/locataire avec documents et quittances
 - Simulateurs de prêt et de rentabilité locative
-- Chatbot et matching IA
+- Chatbot conversationnel basé sur une IA générative (API payante)
+- Envoi automatique de confirmation WhatsApp côté serveur (nécessite l'API WhatsApp Business)
 - Blog
 
 ## Support

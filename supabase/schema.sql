@@ -24,6 +24,7 @@ create table if not exists properties (
   status text not null default 'disponible' check (status in ('disponible','sous_compromis','vendu','loue')),
   featured boolean not null default false,
   cover_color text not null default '#8B5A34',
+  photos text[] not null default '{}',
   created_at timestamptz not null default now()
 );
 
@@ -37,6 +38,7 @@ create table if not exists leads (
   phone text default '',
   message text default '',
   property_id uuid references properties(id) on delete set null,
+  photos text[] not null default '{}',
   status text not null default 'nouveau' check (status in ('nouveau','en_cours','traite'))
 );
 
@@ -83,7 +85,58 @@ create policy "Équipe : mise à jour des demandes"
   to authenticated
   using (true);
 
--- 4) DONNÉES DE DÉPART (facultatif, vous pouvez les modifier ou les supprimer) --
+-- 5) STOCKAGE DES PHOTOS -----------------------------------------------------
+insert into storage.buckets (id, name, public)
+values ('property-photos', 'property-photos', true)
+on conflict (id) do nothing;
+
+create policy "Lecture publique des photos"
+  on storage.objects for select
+  to anon, authenticated
+  using (bucket_id = 'property-photos');
+
+create policy "Équipe : upload de photos"
+  on storage.objects for insert
+  to authenticated
+  with check (bucket_id = 'property-photos');
+
+create policy "Équipe : suppression de photos"
+  on storage.objects for delete
+  to authenticated
+  using (bucket_id = 'property-photos');
+
+-- 6) RENDEZ-VOUS --------------------------------------------------------------
+create table if not exists appointments (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  full_name text not null,
+  email text not null,
+  phone text not null,
+  reason text not null,
+  appointment_date date not null,
+  appointment_time text not null,
+  message text default '',
+  status text not null default 'nouveau' check (status in ('nouveau','confirme','annule'))
+);
+
+alter table appointments enable row level security;
+
+create policy "Formulaire public : prise de RDV"
+  on appointments for insert
+  to anon, authenticated
+  with check (true);
+
+create policy "Équipe : lecture des RDV"
+  on appointments for select
+  to authenticated
+  using (true);
+
+create policy "Équipe : mise à jour des RDV"
+  on appointments for update
+  to authenticated
+  using (true);
+
+-- 7) DONNÉES DE DÉPART (facultatif, vous pouvez les modifier ou les supprimer) --
 insert into properties
   (slug, title, kind, category, price, city, postal_code, surface_m2, rooms, bedrooms, dpe, ges, description, highlights, status, featured, cover_color)
 values

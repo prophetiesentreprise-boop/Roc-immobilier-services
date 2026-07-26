@@ -12,7 +12,7 @@ export interface Property {
   title: string;
   kind: PropertyKind;
   category: PropertyCategory;
-  price: number; // euros ; loyer mensuel si location
+  price: number; // FCFA ; loyer mensuel si location
   city: string;
   postal_code: string;
   surface_m2: number;
@@ -24,7 +24,8 @@ export interface Property {
   highlights: string[];
   status: "disponible" | "sous_compromis" | "vendu" | "loue";
   featured: boolean;
-  cover_color: string; // placeholder visual accent while real photos are added
+  cover_color: string; // repli visuel tant qu'aucune photo n'est ajoutée
+  photos: string[]; // URLs Supabase Storage
   created_at: string;
 }
 
@@ -37,5 +38,19 @@ export interface Lead {
   phone: string;
   message: string;
   property_id: string | null;
+  photos: string[];
   status: "nouveau" | "en_cours" | "traite";
+}
+
+export interface Appointment {
+  id: string;
+  created_at: string;
+  full_name: string;
+  email: string;
+  phone: string;
+  reason: string;
+  appointment_date: string; // YYYY-MM-DD
+  appointment_time: string; // ex. "10:00"
+  message: string;
+  status: "nouveau" | "confirme" | "annule";
 }

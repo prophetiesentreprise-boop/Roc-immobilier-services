@@ -3,6 +3,7 @@ import { Fraunces, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Chatbot } from "@/components/Chatbot";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -24,9 +25,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ROC Immobilier — Agence immobilière à Colmar",
+  title: "ROC Immobilier — Agence immobilière à Abidjan",
   description:
-    "Vente, achat, location et gestion locative à Colmar et en Alsace. Estimation gratuite en ligne, recherche de biens et accompagnement personnalisé.",
+    "Vente, achat, location et gestion locative à Abidjan et en Côte d'Ivoire. Estimation gratuite en ligne, recherche de biens et accompagnement personnalisé.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );

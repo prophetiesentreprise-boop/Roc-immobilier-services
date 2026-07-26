@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { notifyAgency } from "@/lib/notify";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { type, full_name, email, phone, message, property_id } = body;
+  const { type, full_name, email, phone, message, property_id, photos } = body;
 
   if (!full_name || !email) {
     return NextResponse.json(
@@ -28,12 +29,18 @@ export async function POST(request: NextRequest) {
     phone: phone ?? "",
     message: message ?? "",
     property_id: property_id ?? null,
+    photos: photos ?? [],
     status: "nouveau",
   });
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  await notifyAgency(
+    `Nouvelle demande (${type ?? "contact"}) — ${full_name}`,
+    `${full_name} a envoyé une demande depuis le site.\n\nType : ${type ?? "contact"}\nTéléphone : ${phone ?? "(non renseigné)"}\nE-mail : ${email}\nMessage : ${message ?? "(aucun)"}`
+  );
 
   return NextResponse.json({ ok: true });
 }
