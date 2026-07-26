@@ -4,6 +4,8 @@ import { getPropertyBySlug } from "@/lib/properties";
 import { formatPrice } from "@/lib/format";
 import { RooflineMotif } from "@/components/RooflineMotif";
 import { LeadForm } from "@/components/LeadForm";
+import { whatsappLink } from "@/lib/site-config";
+import { MessageCircle } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -119,7 +121,17 @@ export default async function PropertyPage({ params }: PageProps) {
             Un conseiller ROC Immobilier vous recontacte sous 24h pour organiser une visite
             ou répondre à vos questions.
           </p>
-          <div className="mt-5">
+
+          <a
+            href={whatsappLink(`Bonjour, je suis intéressé(e) par le bien « ${property.title} » (${property.city}). Pouvez-vous m'en dire plus ?`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex items-center justify-center gap-2 rounded-sm bg-vigne px-4 py-3 text-sm font-semibold text-craie-100 hover:opacity-90"
+          >
+            <MessageCircle size={17} /> Demander sur WhatsApp
+          </a>
+
+          <div className="mt-5 border-t border-ligne pt-5">
             <LeadForm type="visite" propertyId={property.id} submitLabel="Demander une visite" />
           </div>
         </aside>

@@ -38,7 +38,7 @@ export function HeroSearch() {
       <form onSubmit={handleSubmit} className="grid gap-2 p-2 sm:grid-cols-[1.4fr_1fr_auto]">
         <input
           type="text"
-          placeholder="Ville ou quartier (ex. Colmar)"
+          placeholder="Ville ou commune (ex. Cocody)"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           className="rounded-sm border border-ligne bg-white px-3 py-3 text-sm text-encre placeholder:text-encre/40"

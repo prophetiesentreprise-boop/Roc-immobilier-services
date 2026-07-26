@@ -40,6 +40,8 @@ export function PropertyCard({ property }: { property: Property }) {
           {property.title}
         </h3>
 
+        <p className="mt-2 line-clamp-2 text-sm text-encre/65">{property.description}</p>
+
         <div className="mt-3 flex items-center gap-4 text-sm text-encre/70">
           <span className="flex items-center gap-1">
             <Ruler size={15} /> {property.surface_m2} m²
@@ -49,7 +51,19 @@ export function PropertyCard({ property }: { property: Property }) {
               <BedDouble size={15} /> {property.bedrooms} ch.
             </span>
           )}
+          <span className="text-encre/40">·</span>
+          <span>{property.category}</span>
         </div>
+
+        {property.highlights.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {property.highlights.slice(0, 3).map((h) => (
+              <span key={h} className="rounded-full bg-craie px-2 py-0.5 text-[0.7rem] text-encre/65">
+                {h}
+              </span>
+            ))}
+          </div>
+        )}
 
         <p className="mt-4 font-[family-name:var(--font-data)] text-xl font-semibold text-pinot">
           {formatPrice(property.price, property.kind)}

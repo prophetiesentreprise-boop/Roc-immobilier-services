@@ -1,0 +1,143 @@
+import Link from "next/link";
+import {
+  Handshake, KeyRound, ClipboardList, ShieldCheck, Scale, Building2, ArrowRight,
+} from "lucide-react";
+import { RooflineMotif } from "@/components/RooflineMotif";
+
+export const metadata = { title: "Nos services — ROC Immobilier" };
+
+const SERVICES = [
+  {
+    icon: Handshake,
+    title: "Vente",
+    tag: "Propriétaires",
+    color: "#8B5A34",
+    text:
+      "De l'estimation à la signature définitive, nous pilotons chaque étape de la vente de votre bien : diffusion ciblée, visites qualifiées, négociation et suivi jusqu'à l'acte notarié.",
+    points: ["Estimation gratuite", "Diffusion large de l'annonce", "Négociation par un expert", "Suivi du dossier notarial"],
+    href: "/estimer",
+  },
+  {
+    icon: KeyRound,
+    title: "Achat",
+    tag: "Acquéreurs & investisseurs",
+    color: "#5F6F52",
+    text:
+      "Nous recherchons pour vous le bien qui correspond réellement à votre projet — résidence principale ou investissement locatif — et vous accompagnons jusqu'à la remise des clés.",
+    points: ["Recherche personnalisée", "Visites organisées", "Analyse du marché local", "Accompagnement financement"],
+    href: "/acheter",
+  },
+  {
+    icon: ClipboardList,
+    title: "Location",
+    tag: "Locataires & propriétaires",
+    color: "#202B38",
+    text:
+      "Sélection rigoureuse des candidats, constitution du dossier locataire, rédaction du bail et état des lieux : une mise en location sereine, des deux côtés.",
+    points: ["Vérification des dossiers", "Rédaction du bail", "État des lieux numérique", "Remise des clés"],
+    href: "/louer",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Gestion locative",
+    tag: "Propriétaires bailleurs",
+    color: "#6E2A34",
+    text:
+      "Confiez la gestion quotidienne de votre bien : encaissement des loyers, relances, coordination des travaux et reporting mensuel clair et transparent.",
+    points: ["Encaissement des loyers", "Relance des impayés", "Suivi des travaux", "Reporting mensuel"],
+    href: "/contact",
+  },
+  {
+    icon: Building2,
+    title: "Investissement immobilier",
+    tag: "Investisseurs",
+    color: "#8B5A34",
+    text:
+      "Nous identifions les opportunités les plus rentables du marché abidjanais et vous aidons à construire un patrimoine immobilier durable, en location ou en revente.",
+    points: ["Analyse de rentabilité", "Sélection d'opportunités", "Simulation de revenus locatifs", "Suivi post-acquisition"],
+    href: "/contact",
+  },
+  {
+    icon: Scale,
+    title: "Accompagnement juridique",
+    tag: "Tous nos clients",
+    color: "#5F6F52",
+    text:
+      "Nous coordonnons les démarches administratives et juridiques liées à votre projet (titres fonciers, actes, formalités notariales) avec nos partenaires de confiance.",
+    points: ["Vérification des titres", "Coordination notariale", "Conformité réglementaire", "Conseils personnalisés"],
+    href: "/contact",
+  },
+];
+
+export default function NosServicesPage() {
+  return (
+    <div>
+      <div className="relative overflow-hidden bg-ardoise py-20 text-craie-100">
+        <RooflineMotif className="absolute bottom-0 left-0 w-full h-20 text-craie-100/5" />
+        <div className="container-roc relative">
+          <p className="eyebrow text-colombage">Nos services</p>
+          <h1 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold">
+            Un accompagnement complet pour chaque projet immobilier
+          </h1>
+          <p className="mt-4 max-w-lg text-sm text-craie-100/75">
+            Vente, achat, location, gestion locative, investissement : ROC Immobilier
+            réunit sous un même toit toute l'expertise nécessaire à votre projet à
+            Abidjan et dans sa région.
+          </p>
+        </div>
+      </div>
+
+      <div className="container-roc py-20">
+        <div className="grid gap-16">
+          {SERVICES.map((service, i) => (
+            <div
+              key={service.title}
+              className={`grid gap-8 lg:grid-cols-2 lg:items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
+            >
+              <div
+                className="relative h-64 overflow-hidden rounded-sm"
+                style={{ background: `linear-gradient(150deg, ${service.color} 0%, #202B38 130%)` }}
+              >
+                <RooflineMotif className="absolute bottom-0 left-0 w-full h-16 text-craie-100/10" />
+                <service.icon className="absolute right-6 top-6 text-craie-100/70" size={32} />
+              </div>
+
+              <div>
+                <p className="eyebrow">{service.tag}</p>
+                <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-ardoise">
+                  {service.title}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-encre/75">{service.text}</p>
+                <ul className="mt-4 grid grid-cols-2 gap-2 text-sm text-encre/75">
+                  {service.points.map((point) => (
+                    <li key={point} className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-pinot" /> {point}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={service.href} className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-pinot">
+                  En savoir plus <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container-roc pb-24">
+        <div className="rounded-sm bg-pinot px-8 py-14 text-center text-craie-100 sm:px-16">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold">
+            Un projet en tête ? Parlons-en.
+          </h2>
+          <p className="mx-auto mt-2 max-w-md text-sm text-craie-100/80">
+            Nos conseillers vous répondent sous 24h ouvrées pour définir ensemble la
+            meilleure approche.
+          </p>
+          <Link href="/contact" className="btn-primary mt-6 bg-craie-100 text-pinot hover:bg-craie">
+            Prendre contact <ArrowRight size={15} />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}

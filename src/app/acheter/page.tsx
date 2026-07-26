@@ -27,8 +27,17 @@ export default async function AcheterPage({ searchParams }: PageProps) {
       </h1>
       <p className="mt-3 max-w-xl text-sm text-encre/70">
         {properties.length} bien{properties.length > 1 ? "s" : ""} disponible
-        {properties.length > 1 ? "s" : ""} à Colmar et dans le Haut-Rhin.
+        {properties.length > 1 ? "s" : ""} à la vente à Abidjan et environs.
       </p>
+
+      <div className="mt-6 flex items-start gap-3 rounded-sm border border-ligne bg-craie-100 p-4 text-sm text-encre/70">
+        <span className="eyebrow shrink-0">Bon à savoir</span>
+        <p>
+          Chaque bien à la vente est vérifié par notre équipe (titre de propriété,
+          situation du dossier). Besoin d'aide pour évaluer votre capacité d'achat ou le
+          montage du dossier ? <a href="/contact" className="text-pinot underline">Contactez un conseiller</a>.
+        </p>
+      </div>
 
       <div className="mt-8">
         <Suspense>

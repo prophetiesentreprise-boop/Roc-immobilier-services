@@ -1,8 +1,6 @@
 export function formatPrice(value: number, kind: "vente" | "location") {
-  const formatted = new Intl.NumberFormat("fr-FR", {
-    style: "currency",
-    currency: "EUR",
+  const formatted = `${new Intl.NumberFormat("fr-FR", {
     maximumFractionDigits: 0,
-  }).format(value);
+  }).format(value)} FCFA`;
   return kind === "location" ? `${formatted} / mois` : formatted;
 }

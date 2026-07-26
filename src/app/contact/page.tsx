@@ -1,7 +1,8 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
+import { siteConfig, whatsappLink } from "@/lib/site-config";
 
-export const metadata = { title: "Contact — ROC Immobilier Services" };
+export const metadata = { title: "Contact — ROC Immobilier" };
 
 export default function ContactPage() {
   return (
@@ -12,25 +13,40 @@ export default function ContactPage() {
           Parlons de votre projet
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-encre/75">
-          Notre équipe vous répond sous 24h ouvrées. Pour une urgence, appelez-nous
-          directement.
+          Notre équipe vous répond sous 24h ouvrées. Pour une réponse plus rapide,
+          écrivez-nous directement sur WhatsApp.
         </p>
 
         <div className="mt-8 space-y-5 text-sm text-encre/80">
-          <p className="flex items-center gap-3"><MapPin size={18} className="text-pinot" />  Abidjan – Cocody - Genie 2000- Non de Playce Palmeraie</p>
-          <p className="flex items-center gap-3"><Phone size={18} className="text-pinot" /> +225 05 76 83 84 84</p>
-          <p className="flex items-center gap-3"><Mail size={18} className="text-pinot" /> info@rocimmobilierservice.ci</p>
-          <p className="flex items-center gap-3"><Clock size={18} className="text-pinot" /> Lun–Ven 8h–18h00 · Sam 9h–12h30</p>
+          <p className="flex items-center gap-3">
+            <MapPin size={18} className="text-pinot" />
+            {siteConfig.address.line1}, {siteConfig.address.line2} — {siteConfig.address.city}, {siteConfig.address.country}
+          </p>
+          <p className="flex items-center gap-3"><Phone size={18} className="text-pinot" /> {siteConfig.phoneDisplay}</p>
+          <p className="flex items-center gap-3"><Mail size={18} className="text-pinot" /> {siteConfig.email}</p>
+          <p className="flex items-center gap-3"><Clock size={18} className="text-pinot" /> {siteConfig.hours}</p>
         </div>
+
+        <a
+          href={whatsappLink("Bonjour ROC Immobilier, je souhaite avoir plus d'informations sur vos services.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex items-center gap-2 rounded-sm bg-vigne px-5 py-3 text-sm font-semibold text-craie-100 hover:opacity-90"
+        >
+          <MessageCircle size={17} /> Nous écrire sur WhatsApp
+        </a>
 
         <div className="mt-10 aspect-video overflow-hidden rounded-sm border border-ligne">
           <iframe
-            title="Localisation de l'agence ROC Immobilier à Abidjan"
+            title="Localisation de l'agence ROC Immobilier — Cocody, Génie 2000, Abidjan"
             className="h-full w-full"
             loading="lazy"
-            src="https://www.openstreetmap.org/?#map=15/5.36980/-3.94057"
+            src={siteConfig.mapEmbedUrl}
           />
         </div>
+        <p className="mt-2 text-xs text-encre/50">
+          Cocody, Génie 2000 — non loin de Playce Palmeraie, Abidjan.
+        </p>
       </div>
 
       <div className="h-fit rounded-sm border border-ligne bg-craie-100 p-7">
@@ -39,6 +55,11 @@ export default function ContactPage() {
           Envoyez-nous un message
         </h2>
         <LeadForm type="contact" submitLabel="Envoyer le message" />
+        <p className="mt-4 text-xs text-encre/50">
+          Votre message est enregistré et visible immédiatement par notre équipe dans
+          notre espace professionnel. Pour une réponse encore plus rapide, écrivez-nous
+          directement via WhatsApp ci-contre.
+        </p>
       </div>
     </div>
   );

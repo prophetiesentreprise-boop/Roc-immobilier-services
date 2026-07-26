@@ -27,8 +27,18 @@ export default async function LouerPage({ searchParams }: PageProps) {
       </h1>
       <p className="mt-3 max-w-xl text-sm text-encre/70">
         {properties.length} bien{properties.length > 1 ? "s" : ""} disponible
-        {properties.length > 1 ? "s" : ""} à la location à Colmar et dans le Haut-Rhin.
+        {properties.length > 1 ? "s" : ""} à la location à Abidjan et environs.
       </p>
+
+      <div className="mt-6 flex items-start gap-3 rounded-sm border border-ligne bg-craie-100 p-4 text-sm text-encre/70">
+        <span className="eyebrow shrink-0">Bon à savoir</span>
+        <p>
+          Préparez votre dossier locataire (pièce d'identité, justificatif de revenus,
+          caution) pour accélérer la réservation d'un bien qui vous plaît.
+          <a href="/contact" className="text-pinot underline"> Contactez-nous</a> pour
+          connaître la liste exacte des pièces demandées.
+        </p>
+      </div>
 
       <div className="mt-8">
         <Suspense>

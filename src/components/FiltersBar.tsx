@@ -42,7 +42,7 @@ export function FiltersBar() {
         <input
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          placeholder="Colmar, Wintzenheim…"
+          placeholder="Cocody, Marcory, Riviera…"
           className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm"
         />
       </div>

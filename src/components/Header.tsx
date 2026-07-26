@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 const NAV = [
+  { href: "/agence", label: "L'agence" },
   { href: "/acheter", label: "Acheter" },
   { href: "/louer", label: "Louer" },
   { href: "/estimer", label: "Estimer mon bien" },
-  { href: "/gestion-locative", label: "Gestion locative" },
-  { href: "/agence", label: "L'agence" },
+  { href: "/nos-services", label: "Nos services" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -23,7 +24,7 @@ export function Header() {
           ROC <span className="text-pinot">Immobilier</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -36,9 +37,9 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:+33389000000" className="flex items-center gap-2 text-sm font-semibold text-ardoise">
+          <a href={`tel:${siteConfig.phoneHref}`} className="flex items-center gap-2 text-sm font-semibold text-ardoise">
             <Phone size={16} className="text-pinot" />
-            03 89 00 00 00
+            {siteConfig.phoneDisplay}
           </a>
           <Link href="/contact" className="btn-primary text-sm">
             Prendre RDV

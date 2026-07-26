@@ -14,16 +14,16 @@ export default async function Home() {
       <section className="relative overflow-hidden bg-craie pt-16 pb-28">
         <div className="container-roc grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <p className="eyebrow">Agence indépendante en Côte d'Ivoire · depuis 2016</p>
+            <p className="eyebrow">Agence indépendante à Abidjan · depuis 2016</p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.08] text-ardoise sm:text-5xl">
               L'immobilier ivoirien,
               <br />
-              conseillé avec exigence et dilligence.
+              conseillé avec exigence.
             </h1>
             <p className="mt-5 max-w-md text-base text-encre/75">
-              ROC Immobilier Services accompagne particuliers et investisseurs à Abidjan et sur toute l'étendue 
-              du territoire ivoirien : vente, achat, location et gestion locative, avec la même rigueur
-              à chaque étape.
+              ROC Immobilier accompagne particuliers et investisseurs à Abidjan et dans
+              sa région : vente, achat, location et gestion locative, avec la même
+              rigueur à chaque étape.
             </p>
 
             <div className="mt-8">
@@ -31,7 +31,7 @@ export default async function Home() {
             </div>
 
             <p className="mt-4 text-xs text-encre/50">
-              Exemple : « Maison à la Riviera 5 », « Appartement à Bingerville »…
+              Exemple : « Villa à Cocody », « Appartement à Marcory »…
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default async function Home() {
                 {featured[0]?.title ?? "Découvrez nos biens"}
               </p>
               <p className="mt-1 text-sm text-encre/60">
-                {featured[0] ? `${featured[0].city} · ${featured[0].surface_m2} m²` : "Colmar et région"}
+                {featured[0] ? `${featured[0].city} · ${featured[0].surface_m2} m²` : "Abidjan et région"}
               </p>
               <Link
                 href={featured[0] ? `/biens/${featured[0].slug}` : "/acheter"}
@@ -64,9 +64,9 @@ export default async function Home() {
       <section className="border-y border-ligne bg-ardoise text-craie-100">
         <div className="container-roc grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
           {[
-            ["10 ans", "d'expertise locale"],
+            ["9 ans", "d'expertise locale"],
             ["100%", "biens vérifiés & agréés"],
-            ["24h/5", "délai moyen de réponse"],
+            ["24h", "délai moyen de réponse"],
             ["4/4", "activités : vente, achat, location, gestion"],
           ].map(([value, label]) => (
             <div key={label}>
@@ -113,7 +113,7 @@ export default async function Home() {
               { icon: Handshake, title: "Vente", text: "Estimation, publicité ciblée, négociation et suivi notarial.", href: "/acheter" },
               { icon: KeyRound, title: "Achat", text: "Recherche personnalisée et accompagnement jusqu'à la signature.", href: "/acheter" },
               { icon: ClipboardList, title: "Location", text: "Sélection des candidats, dossier locataire, état des lieux.", href: "/louer" },
-              { icon: ShieldCheck, title: "Gestion locative", text: "Encaissement des loyers, reporting propriétaire, entretien du bien.", href: "/gestion-locative" },
+              { icon: ShieldCheck, title: "Gestion locative", text: "Encaissement des loyers, reporting propriétaire, entretien du bien.", href: "/nos-services" },
             ].map(({ icon: Icon, title, text, href }) => (
               <Link key={title} href={href} className="card-lift group rounded-sm border border-ligne bg-craie p-6">
                 <Icon className="text-pinot" size={26} />

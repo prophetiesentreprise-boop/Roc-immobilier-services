@@ -34,7 +34,8 @@ export default function AdminLoginPage() {
       return;
     }
 
-    window.location.href = "/admin";
+    router.push("/admin");
+    router.refresh();
   }
 
   return (

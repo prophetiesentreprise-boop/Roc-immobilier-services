@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { RooflineMotif } from "./RooflineMotif";
+import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   return (
@@ -12,8 +13,8 @@ export function Footer() {
               ROC <span className="text-colombage">Immobilier</span>
             </p>
             <p className="mt-3 text-sm text-craie-100/70">
-              Agence indépendante à Colmar, agréée par l'État. Vente, achat, location et
-              gestion locative en Alsace depuis 2016.
+              Agence indépendante à {siteConfig.city}, {siteConfig.country}. Vente, achat,
+              location et gestion locative depuis {siteConfig.since}.
             </p>
           </div>
 
@@ -23,7 +24,7 @@ export function Footer() {
               <li><Link href="/acheter" className="hover:text-craie-100">Acheter un bien</Link></li>
               <li><Link href="/louer" className="hover:text-craie-100">Louer un bien</Link></li>
               <li><Link href="/estimer" className="hover:text-craie-100">Estimer mon bien</Link></li>
-              <li><Link href="/gestion-locative" className="hover:text-craie-100">Gestion locative</Link></li>
+              <li><Link href="/nos-services" className="hover:text-craie-100">Tous nos services</Link></li>
             </ul>
           </div>
 
@@ -40,16 +41,16 @@ export function Footer() {
           <div>
             <p className="eyebrow text-colombage">Nous contacter</p>
             <ul className="mt-3 space-y-2 text-sm text-craie-100/80">
-              <li>Abidjan – Cocody - Genie 2000, non loin de Playce Palmeraie</li>
-              <li>+225 05 76 83 84 84</li>
-              <li>06 BP 740 ABIDJAN 06</li>
-              <li> info@rocimmobilierservices.com</li>
+              <li>{siteConfig.address.line1}, {siteConfig.address.line2}</li>
+              <li>{siteConfig.address.city}, {siteConfig.address.country}</li>
+              <li>{siteConfig.phoneDisplay}</li>
+              <li>{siteConfig.email}</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-14 flex flex-col gap-2 border-t border-craie-100/15 pt-6 text-xs text-craie-100/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} ROC Immobilier — Carte professionnelle CDAIM · Garantie financière sur demande.</p>
+          <p>© {new Date().getFullYear()} ROC Immobilier — Carte professionnelle [à compléter] · Garantie financière sur demande.</p>
           <p>Site conçu pour ROC Immobilier.</p>
         </div>
       </div>

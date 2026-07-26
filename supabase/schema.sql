@@ -87,19 +87,19 @@ create policy "Équipe : mise à jour des demandes"
 insert into properties
   (slug, title, kind, category, price, city, postal_code, surface_m2, rooms, bedrooms, dpe, ges, description, highlights, status, featured, cover_color)
 values
-  ('maison-colombages-centre-colmar', 'Maison à colombages rénovée, centre historique', 'vente', 'Maison', 495000, 'Colmar', '68000', 140, 6, 4, 'C', 'B',
-   'À deux pas de la Petite Venise, cette maison à colombages entièrement rénovée offre de belles pièces de vie, une cour intérieure privative et des matériaux d''origine préservés.',
-   array['Cour privative','Poutres apparentes','Cave voûtée','Proche centre historique'], 'disponible', true, '#8B5A34'),
+  ('villa-standing-cocody-riviera', 'Villa de standing avec piscine, Cocody Riviera', 'vente', 'Maison', 185000000, 'Cocody', 'Abidjan', 320, 7, 5, 'B', 'B',
+   'Dans un quartier résidentiel calme de Cocody Riviera, cette villa contemporaine offre de vastes volumes, une piscine, un jardin paysager et un système de sécurité 24h/24.',
+   array['Piscine','Groupe électrogène','Forage d''eau','Quartier sécurisé'], 'disponible', true, '#8B5A34'),
 
-  ('appartement-lumineux-quartier-gare', 'Appartement traversant lumineux, quartier gare', 'vente', 'Appartement', 219000, 'Colmar', '68000', 78, 4, 2, 'D', 'D',
-   'Au 3e étage avec ascenseur, cet appartement traversant bénéficie d''une double exposition est-ouest, avec balcon filant et parking privatif.',
-   array['Ascenseur','Double exposition','Parking privatif','Proche gare TGV'], 'disponible', true, '#5F6F52'),
+  ('appartement-standing-plateau', 'Appartement 3 pièces avec vue, Le Plateau', 'vente', 'Appartement', 65000000, 'Plateau', 'Abidjan', 95, 4, 2, 'C', 'C',
+   'Au 8e étage d''une résidence sécurisée du Plateau, cet appartement offre une vue dégagée sur la lagune. Ascenseur, parking privatif, gardiennage permanent.',
+   array['Vue lagune','Ascenseur','Parking privatif','Gardiennage 24h/24'], 'disponible', true, '#5F6F52'),
 
-  ('villa-contemporaine-piscine-wintzenheim', 'Villa contemporaine avec piscine, Wintzenheim', 'vente', 'Maison', 690000, 'Wintzenheim', '68920', 210, 7, 5, 'A', 'A',
-   'Construction 2022 basse consommation, cette villa d''architecte offre de vastes volumes baignés de lumière, une piscine à débordement et un jardin paysager.',
-   array['Piscine à débordement','Domotique','BBC 2022','Jardin 1200 m²'], 'disponible', true, '#202B38'),
+  ('villa-moderne-angre', 'Villa moderne 4 chambres, Angré', 'vente', 'Maison', 98000000, 'Angré', 'Abidjan', 260, 6, 4, 'B', 'A',
+   'Construction récente à Angré 8e Tranche, cette villa moderne dispose d''un salon double, d''une cuisine équipée et d''une cour arborée.',
+   array['Construction récente','Logement gardien','Cour arborée','Cuisine équipée'], 'disponible', true, '#202B38'),
 
-  ('studio-meuble-hyper-centre', 'Studio meublé, hyper-centre', 'location', 'Appartement', 480, 'Colmar', '68000', 24, 1, 0, 'D', 'C',
-   'Studio meublé et fonctionnel en plein cœur de Colmar, idéal étudiant ou jeune actif, charges comprises.',
-   array['Meublé','Charges comprises','Hyper-centre','Disponible immédiatement'], 'disponible', false, '#6E2A34')
+  ('studio-meuble-marcory', 'Studio meublé, Marcory Résidentiel', 'location', 'Appartement', 180000, 'Marcory', 'Abidjan', 28, 1, 0, 'D', 'C',
+   'Studio meublé et climatisé dans une résidence calme de Marcory, idéal jeune actif ou expatrié.',
+   array['Meublé','Climatisé','Résidence sécurisée','Disponible immédiatement'], 'disponible', false, '#6E2A34')
 on conflict (slug) do nothing;
