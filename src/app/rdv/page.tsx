@@ -2,7 +2,7 @@ import { CalendarClock, MapPin, Phone, Clock } from "lucide-react";
 import { AppointmentForm } from "@/components/AppointmentForm";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata = { title: "Prendre rendez-vous — ROC Immobilier" };
+export const metadata = { title: "Prendre rendez-vous — ROC Immobilier Services" };
 
 export default function RdvPage() {
   return (

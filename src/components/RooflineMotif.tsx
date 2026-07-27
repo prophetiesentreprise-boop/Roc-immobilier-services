@@ -7,7 +7,7 @@ export function RooflineMotif({ className }: { className?: string }) {
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Motif graphique de toits stylisés, signature visuelle ROC Immobilier */}
+      {/* Motif graphique de toits stylisés, signature visuelle ROC Immobilier Services */}
       <g fill="currentColor">
         <path d="M0 220V150L60 100L120 150V220Z" opacity="0.9" />
         <path d="M100 220V120L180 60L260 120V220Z" opacity="0.75" />

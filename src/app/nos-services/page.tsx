@@ -4,7 +4,7 @@ import {
 } from "lucide-react";
 import { RooflineMotif } from "@/components/RooflineMotif";
 
-export const metadata = { title: "Nos services — ROC Immobilier" };
+export const metadata = { title: "Nos services — ROC Immobilier Services" };
 
 const SERVICES = [
   {
@@ -80,7 +80,7 @@ export default function NosServicesPage() {
             Un accompagnement complet pour chaque projet immobilier
           </h1>
           <p className="mt-4 max-w-lg text-sm text-craie-100/75">
-            Vente, achat, location, gestion locative, investissement : ROC Immobilier
+            Vente, achat, location, gestion locative, investissement : ROC Immobilier Services
             réunit sous un même toit toute l'expertise nécessaire à votre projet à
             Abidjan et dans sa région.
           </p>

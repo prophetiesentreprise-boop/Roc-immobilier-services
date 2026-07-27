@@ -1,21 +1,22 @@
 import Link from "next/link";
 import { RooflineMotif } from "./RooflineMotif";
+import { Logo } from "./Logo";
 import { siteConfig } from "@/lib/site-config";
 
-export function Footer() {
+interface FooterProps {
+  tagline: string;
+  logoUrl: string | null;
+}
+
+export function Footer({ tagline, logoUrl }: FooterProps) {
   return (
     <footer className="relative mt-24 bg-ardoise text-craie-100 overflow-hidden">
       <RooflineMotif className="absolute top-0 left-0 w-full h-24 text-ardoise-700/70 -translate-y-1" />
       <div className="container-roc relative pt-24 pb-10">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <p className="font-[family-name:var(--font-display)] text-xl font-semibold">
-              ROC <span className="text-colombage">Immobilier</span>
-            </p>
-            <p className="mt-3 text-sm text-craie-100/70">
-              Agence indépendante à {siteConfig.city}, {siteConfig.country}. Vente, achat,
-              location et gestion locative depuis {siteConfig.since}.
-            </p>
+            <Logo logoUrl={logoUrl} variant="light" className="h-9 w-auto" />
+            <p className="mt-3 text-sm text-craie-100/70">{tagline}</p>
           </div>
 
           <div>
@@ -50,8 +51,8 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-2 border-t border-craie-100/15 pt-6 text-xs text-craie-100/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} ROC Immobilier — Carte professionnelle [à compléter] · Garantie financière sur demande.</p>
-          <p>Site conçu pour ROC Immobilier.</p>
+          <p>© {new Date().getFullYear()} ROC Immobilier Services — Carte professionnelle [à compléter] · Garantie financière sur demande.</p>
+          <p>Site conçu pour ROC Immobilier Services.</p>
         </div>
       </div>
     </footer>

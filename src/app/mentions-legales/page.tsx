@@ -1,4 +1,4 @@
-export const metadata = { title: "Mentions légales — ROC Immobilier" };
+export const metadata = { title: "Mentions légales — ROC Immobilier Services" };
 
 export default function MentionsLegalesPage() {
   return (
@@ -10,7 +10,7 @@ export default function MentionsLegalesPage() {
 
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-encre/80">
         <p>
-          <strong className="text-ardoise">Éditeur du site :</strong> ROC Immobilier — [forme
+          <strong className="text-ardoise">Éditeur du site :</strong> ROC Immobilier Services — [forme
           juridique à compléter], [capital social], [numéro RCCM à compléter] — Cocody,
           Génie 2000, Abidjan, Côte d'Ivoire.
         </p>

@@ -3,7 +3,7 @@ import { FiltersBar } from "@/components/FiltersBar";
 import { PropertyCard } from "@/components/PropertyCard";
 import { getProperties } from "@/lib/properties";
 
-export const metadata = { title: "Acheter un bien — ROC Immobilier" };
+export const metadata = { title: "Acheter un bien — ROC Immobilier Services" };
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;

@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 
-export const metadata = { title: "Contact — ROC Immobilier" };
+export const metadata = { title: "Contact — ROC Immobilier Services" };
 
 export default function ContactPage() {
   return (
@@ -28,7 +28,7 @@ export default function ContactPage() {
         </div>
 
         <a
-          href={whatsappLink("Bonjour ROC Immobilier, je souhaite avoir plus d'informations sur vos services.")}
+          href={whatsappLink("Bonjour ROC Immobilier Services, je souhaite avoir plus d'informations sur vos services.")}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-2 rounded-sm bg-vigne px-5 py-3 text-sm font-semibold text-craie-100 hover:opacity-90"
@@ -38,7 +38,7 @@ export default function ContactPage() {
 
         <div className="mt-10 aspect-video overflow-hidden rounded-sm border border-ligne">
           <iframe
-            title="Localisation de l'agence ROC Immobilier — Cocody, Génie 2000, Abidjan"
+            title="Localisation de l'agence ROC Immobilier Services — Cocody, Génie 2000, Abidjan"
             className="h-full w-full"
             loading="lazy"
             src={siteConfig.mapEmbedUrl}

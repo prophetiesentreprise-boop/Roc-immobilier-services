@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* --- ROC Immobilier design tokens --- */
+  /* --- ROC Immobilier Services design tokens --- */
   --ardoise: #202b38;      /* ink navy-charcoal — headers, footer, dark sections */
   --ardoise-700: #2b3947;
   --craie: #eae3d2;        /* warm stone parchment — page background */

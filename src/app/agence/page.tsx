@@ -1,8 +1,9 @@
 import { ShieldCheck, Users, Award, Target, Heart, Handshake } from "lucide-react";
 import { RooflineMotif } from "@/components/RooflineMotif";
 import { siteConfig } from "@/lib/site-config";
+import { getSiteSettings } from "@/lib/site-settings";
 
-export const metadata = { title: "L'agence — ROC Immobilier" };
+export const metadata = { title: "L'agence — ROC Immobilier Services" };
 
 const VALEURS = [
   { icon: Heart, title: "Écoute", text: "Chaque projet est unique : nous prenons le temps de comprendre vos besoins réels avant de proposer une solution." },
@@ -17,7 +18,8 @@ const EQUIPE = [
   { role: "Gestion locative", text: "Suivi des propriétaires bailleurs et des locataires." },
 ];
 
-export default function AgencePage() {
+export default async function AgencePage() {
+  const settings = await getSiteSettings();
   return (
     <div>
       <div className="relative overflow-hidden bg-ardoise py-24 text-craie-100">
@@ -28,7 +30,7 @@ export default function AgencePage() {
             Une agence indépendante, fondée sur des valeurs humaines
           </h1>
           <p className="mt-5 max-w-xl text-sm text-craie-100/75">
-            Depuis {siteConfig.since}, ROC Immobilier accompagne particuliers et
+            Depuis {siteConfig.since}, ROC Immobilier Services accompagne particuliers et
             investisseurs à {siteConfig.city} dans leurs projets de vente, d'achat, de
             location et de gestion locative — avec la même exigence à chaque étape.
           </p>
@@ -59,14 +61,7 @@ export default function AgencePage() {
           <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-ardoise">
             Une expertise construite sur le terrain, quartier par quartier
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-encre/80">
-            ROC Immobilier est née de la conviction qu'une agence immobilière doit avant
-            tout être une agence de confiance : proche de ses clients, précise dans ses
-            estimations, et rigoureuse dans le suivi de chaque dossier. Depuis nos
-            débuts, nous avons accompagné des centaines de familles et d'investisseurs
-            dans leurs projets à {siteConfig.city} et dans sa région, en construisant
-            une connaissance fine des quartiers, des prix et des dynamiques locales.
-          </p>
+          <p className="mt-4 text-sm leading-relaxed text-encre/80">{settings.agency_intro}</p>
           <p className="mt-4 text-sm leading-relaxed text-encre/80">
             Aujourd'hui, notre équipe combine expertise commerciale, rigueur juridique
             et connaissance du marché local pour offrir un accompagnement complet, de

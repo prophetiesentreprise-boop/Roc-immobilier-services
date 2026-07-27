@@ -21,7 +21,7 @@ interface BotNode {
 
 const TREE: Record<NodeId, BotNode> = {
   root: {
-    message: `Bonjour 👋 Je suis l'assistant ROC Immobilier. Comment puis-je vous orienter ?`,
+    message: `Bonjour 👋 Je suis l'assistant ROC Immobilier Services. Comment puis-je vous orienter ?`,
     options: [
       { label: "Je veux acheter un bien", next: "acheter" },
       { label: "Je veux louer un bien", next: "louer" },
@@ -55,7 +55,7 @@ const TREE: Record<NodeId, BotNode> = {
     ],
   },
   services: {
-    message: `ROC Immobilier propose : vente, achat, location, gestion locative, investissement et accompagnement juridique.`,
+    message: `ROC Immobilier Services propose : vente, achat, location, gestion locative, investissement et accompagnement juridique.`,
     options: [
       { label: "Voir tous nos services", href: "/nos-services" },
       { label: "⬅ Retour au menu", next: "root" },
@@ -102,7 +102,7 @@ export function Chatbot() {
       {open ? (
         <div className="flex h-[28rem] w-80 flex-col overflow-hidden rounded-sm border border-ligne bg-craie-100 shadow-2xl">
           <div className="flex items-center justify-between bg-ardoise px-4 py-3 text-craie-100">
-            <p className="text-sm font-semibold">Assistant ROC Immobilier</p>
+            <p className="text-sm font-semibold">Assistant ROC Immobilier Services</p>
             <button onClick={() => setOpen(false)} aria-label="Fermer l'assistant">
               <X size={18} />
             </button>
@@ -139,7 +139,7 @@ export function Chatbot() {
                     option.href === "__whatsapp__" ? (
                       <a
                         key={option.label}
-                        href={whatsappLink("Bonjour ROC Immobilier, j'ai une question.")}
+                        href={whatsappLink("Bonjour ROC Immobilier Services, j'ai une question.")}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setHistory((h) => [...h, { from: "user", text: option.label }])}
@@ -174,7 +174,7 @@ export function Chatbot() {
       ) : (
         <button
           onClick={() => setOpen(true)}
-          aria-label="Ouvrir l'assistant ROC Immobilier"
+          aria-label="Ouvrir l'assistant ROC Immobilier Services"
           className="flex h-14 w-14 items-center justify-center rounded-full bg-pinot text-craie-100 shadow-lg hover:bg-pinot-600"
         >
           <MessageCircle size={24} />

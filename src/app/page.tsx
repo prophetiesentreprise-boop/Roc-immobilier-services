@@ -1,30 +1,35 @@
 import Link from "next/link";
-import { ShieldCheck, KeyRound, ClipboardList, Handshake, Star, ArrowRight } from "lucide-react";
+import { ShieldCheck, KeyRound, ClipboardList, Handshake, Star, ArrowRight, Compass, Zap, HeartHandshake } from "lucide-react";
 import { HeroSearch } from "@/components/HeroSearch";
 import { PropertyCard } from "@/components/PropertyCard";
 import { RooflineMotif } from "@/components/RooflineMotif";
 import { getFeaturedProperties } from "@/lib/properties";
+import { getSiteSettings } from "@/lib/site-settings";
 
 export default async function Home() {
-  const featured = await getFeaturedProperties();
+  const [featured, settings] = await Promise.all([getFeaturedProperties(), getSiteSettings()]);
+
+  const titleWords = settings.hero_title.trim().split(" ");
+  const lastWord = titleWords.pop();
+  const titleStart = titleWords.join(" ");
+
+  const valueProps = [
+    { icon: Compass, title: settings.value_prop_title_1, text: settings.value_prop_text_1 },
+    { icon: Zap, title: settings.value_prop_title_2, text: settings.value_prop_text_2 },
+    { icon: HeartHandshake, title: settings.value_prop_title_3, text: settings.value_prop_text_3 },
+  ];
 
   return (
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-craie pt-16 pb-28">
+      <section className="relative overflow-hidden bg-craie pt-16 pb-20">
         <div className="container-roc grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <p className="eyebrow">Agence indépendante à Abidjan · depuis 2016</p>
+            <p className="eyebrow">{settings.hero_eyebrow}</p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.08] text-ardoise sm:text-5xl">
-              L'immobilier ivoirien,
-              <br />
-              conseillé avec exigence.
+              {titleStart} <span className="text-pinot italic">{lastWord}</span>
             </h1>
-            <p className="mt-5 max-w-md text-base text-encre/75">
-              ROC Immobilier accompagne particuliers et investisseurs à Abidjan et dans
-              sa région : vente, achat, location et gestion locative, avec la même
-              rigueur à chaque étape.
-            </p>
+            <p className="mt-5 max-w-md text-base text-encre/75">{settings.hero_subtitle}</p>
 
             <div className="mt-8">
               <HeroSearch />
@@ -60,8 +65,23 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* VALEURS (bandeau façon "pourquoi nous choisir") */}
+      <section className="border-y border-ligne bg-craie-100">
+        <div className="container-roc grid gap-8 py-10 sm:grid-cols-3">
+          {valueProps.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="flex items-start gap-4">
+              <Icon className="mt-0.5 shrink-0 text-pinot" size={24} />
+              <div>
+                <p className="font-[family-name:var(--font-display)] font-semibold text-ardoise">{title}</p>
+                <p className="mt-1 text-sm text-encre/65">{text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* STATS */}
-      <section className="border-y border-ligne bg-ardoise text-craie-100">
+      <section className="border-b border-ligne bg-ardoise text-craie-100">
         <div className="container-roc grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
           {[
             ["9 ans", "d'expertise locale"],

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { Logo } from "./Logo";
 
 const NAV = [
   { href: "/agence", label: "L'agence" },
@@ -14,14 +15,14 @@ const NAV = [
   { href: "/contact", label: "Contact" },
 ];
 
-export function Header() {
+export function Header({ logoUrl }: { logoUrl: string | null }) {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-ligne bg-craie-100/95 backdrop-blur">
       <div className="container-roc flex h-20 items-center justify-between">
-        <Link href="/" className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-ardoise">
-          ROC <span className="text-pinot">Immobilier</span>
+        <Link href="/" className="flex items-center">
+          <Logo logoUrl={logoUrl} className="h-11 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7">

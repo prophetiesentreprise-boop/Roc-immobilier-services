@@ -21,7 +21,7 @@ export async function notifyAgency(subject: string, text: string) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return;
 
-  const from = process.env.RESEND_FROM || "ROC Immobilier <onboarding@resend.dev>";
+  const from = process.env.RESEND_FROM || "ROC Immobilier Services <onboarding@resend.dev>";
 
   try {
     await fetch("https://api.resend.com/emails", {

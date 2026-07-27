@@ -1,7 +1,7 @@
 import { CheckCircle2, TrendingUp, Clock3, ShieldCheck } from "lucide-react";
 import { EstimateForm } from "@/components/EstimateForm";
 
-export const metadata = { title: "Estimer mon bien — ROC Immobilier" };
+export const metadata = { title: "Estimer mon bien — ROC Immobilier Services" };
 
 const STEPS = [
   ["1", "Vous décrivez votre bien", "Adresse, type de bien, surface, état général : deux minutes suffisent."],

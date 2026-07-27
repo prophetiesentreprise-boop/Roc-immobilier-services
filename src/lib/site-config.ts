@@ -1,10 +1,10 @@
 /**
- * Configuration centrale du site ROC Immobilier.
+ * Configuration centrale du site ROC Immobilier Services.
  * Modifiez les valeurs ci-dessous pour mettre à jour les informations
  * partout sur le site (en-tête, pied de page, contact, RDV, WhatsApp...).
  */
 export const siteConfig = {
-  agencyName: "ROC Immobilier",
+  agencyName: "ROC Immobilier Services",
   city: "Abidjan",
   country: "Côte d'Ivoire",
   since: "2016",
