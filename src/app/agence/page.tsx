@@ -92,10 +92,12 @@ export default async function AgencePage() {
             <li>— Transparence sur les prix, les délais et les frais.</li>
             <li>— Suivi personnalisé jusqu'à la signature définitive.</li>
             <li>— Confidentialité et protection des données clients.</li>
+             <li>— Conseils juridiques et accompagnement fiscal .</li>
+            
           </ul>
           <p className="mt-6 text-xs text-encre/50">
-            Remplacez ce texte et ces chiffres par les informations exactes de l'agence
-            avant la mise en ligne (agréments, numéro RCCM, garantie financière).
+            
+           
           </p>
         </div>
       </div>
@@ -173,7 +175,7 @@ export default async function AgencePage() {
           ))}
         </div>
         <p className="mt-4 text-xs text-encre/50">
-          Modifiable à tout moment depuis le back-office : Menu « Notre équipe ».
+          
         </p>
       </div>
     </div>
