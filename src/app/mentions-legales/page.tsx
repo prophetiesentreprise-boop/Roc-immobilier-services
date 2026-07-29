@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site-config";
+
 export const metadata = { title: "Mentions légales — ROC Immobilier Services" };
 
 export default function MentionsLegalesPage() {
@@ -11,8 +13,7 @@ export default function MentionsLegalesPage() {
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-encre/80">
         <p>
           <strong className="text-ardoise">Éditeur du site :</strong> ROC Immobilier Services — [forme
-          juridique à compléter], [capital social], [numéro RCCM à compléter] — Cocody,
-          Génie 2000, Abidjan, Côte d'Ivoire.
+          juridique à compléter], [capital social], [numéro RCCM à compléter] — {siteConfig.address.line1}, {siteConfig.address.line2}, {siteConfig.address.postal}.
         </p>
         <p>
           <strong className="text-ardoise">Carte professionnelle :</strong> [numéro et
@@ -32,7 +33,7 @@ export default function MentionsLegalesPage() {
           informations recueillies via les formulaires de ce site sont destinées à ROC
           Immobilier pour le traitement de votre demande. Conformément au Règlement Général
           sur la Protection des Données, vous disposez d'un droit d'accès, de rectification
-          et de suppression de vos données, à exercer par e-mail à contact@rocimmobilierservice.com.
+          et de suppression de vos données, à exercer par e-mail à {siteConfig.emails[0]}.
         </p>
         <p className="rounded-sm border border-ligne bg-craie-100 p-4 text-xs text-encre/60">
           Cette page est un modèle de départ. Faites-la valider par un professionnel du

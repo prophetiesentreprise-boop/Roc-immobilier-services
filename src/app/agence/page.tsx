@@ -92,13 +92,8 @@ export default async function AgencePage() {
             <li>— Transparence sur les prix, les délais et les frais.</li>
             <li>— Suivi personnalisé jusqu'à la signature définitive.</li>
             <li>— Confidentialité et protection des données clients.</li>
-             <li>— Conseils juridiques et accompagnement fiscal .</li>
-            
+            <li>— Conseil juridique et accompagnement fiscal.</li>
           </ul>
-          <p className="mt-6 text-xs text-encre/50">
-            
-           
-          </p>
         </div>
       </div>
 
@@ -145,8 +140,8 @@ export default async function AgencePage() {
                 <p className="font-[family-name:var(--font-display)] font-semibold text-ardoise">{member.full_name}</p>
                 <p className="mt-1 text-sm text-encre/65">{member.role}</p>
 
-                {(member.phone || member.email || member.whatsapp) && (
-                  <div className="mt-4 flex gap-3 border-t border-ligne pt-4">
+                {(member.phone || member.email || member.whatsapp || member.facebook_url || member.instagram_url || member.linkedin_url) && (
+                  <div className="mt-4 flex flex-wrap gap-3 border-t border-ligne pt-4">
                     {member.phone && (
                       <a href={`tel:${member.phone}`} aria-label={`Appeler ${member.full_name}`} className="text-pinot hover:opacity-70">
                         <Phone size={16} />
@@ -163,9 +158,24 @@ export default async function AgencePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`WhatsApp de ${member.full_name}`}
-                        className="text-pinot hover:opacity-70"
+                        className="text-vigne hover:opacity-70"
                       >
                         <MessageCircle size={16} />
+                      </a>
+                    )}
+                    {member.facebook_url && (
+                      <a href={member.facebook_url} target="_blank" rel="noopener noreferrer" aria-label={`Facebook de ${member.full_name}`} className="flex h-6 w-6 items-center justify-center rounded-full bg-colombage text-[0.6rem] font-bold text-craie-100 hover:opacity-80">
+                        f
+                      </a>
+                    )}
+                    {member.instagram_url && (
+                      <a href={member.instagram_url} target="_blank" rel="noopener noreferrer" aria-label={`Instagram de ${member.full_name}`} className="flex h-6 w-6 items-center justify-center rounded-full bg-colombage text-[0.6rem] font-bold text-craie-100 hover:opacity-80">
+                        IG
+                      </a>
+                    )}
+                    {member.linkedin_url && (
+                      <a href={member.linkedin_url} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${member.full_name}`} className="flex h-6 w-6 items-center justify-center rounded-full bg-colombage text-[0.6rem] font-bold text-craie-100 hover:opacity-80">
+                        in
                       </a>
                     )}
                   </div>
@@ -175,7 +185,7 @@ export default async function AgencePage() {
           ))}
         </div>
         <p className="mt-4 text-xs text-encre/50">
-          
+          Modifiable à tout moment depuis le back-office : Menu « Notre équipe ».
         </p>
       </div>
     </div>

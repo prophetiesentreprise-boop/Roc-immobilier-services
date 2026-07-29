@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { PROPERTY_CATEGORIES } from "@/lib/types";
 
 export function HeroSearch() {
   const router = useRouter();
@@ -49,10 +50,9 @@ export function HeroSearch() {
           className="rounded-sm border border-ligne bg-white px-3 py-3 text-sm text-encre"
         >
           <option value="">Tout type de bien</option>
-          <option value="Maison">Maison</option>
-          <option value="Appartement">Appartement</option>
-          <option value="Terrain">Terrain</option>
-          <option value="Local commercial">Local commercial</option>
+          {PROPERTY_CATEGORIES.map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
         </select>
         <button type="submit" className="btn-primary">
           <Search size={16} /> Rechercher

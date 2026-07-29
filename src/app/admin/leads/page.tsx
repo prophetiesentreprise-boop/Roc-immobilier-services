@@ -1,7 +1,8 @@
 import { AlertTriangle, Mail, Phone } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
-import { Lead } from "@/lib/types";
+import { Lead, TeamMember } from "@/lib/types";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
+import { ForwardToWhatsApp } from "@/components/admin/ForwardToWhatsApp";
 
 const TYPE_LABEL: Record<Lead["type"], string> = {
   estimation: "Estimation",
@@ -23,8 +24,12 @@ export default async function AdminLeadsPage() {
     );
   }
 
-  const { data } = await supabase.from("leads").select("*").order("created_at", { ascending: false });
+  const [{ data }, { data: teamData }] = await Promise.all([
+    supabase.from("leads").select("*").order("created_at", { ascending: false }),
+    supabase.from("team_members").select("*").order("display_order", { ascending: true }),
+  ]);
   const leads = (data ?? []) as Lead[];
+  const team = (teamData ?? []) as TeamMember[];
 
   return (
     <div>
@@ -45,7 +50,13 @@ export default async function AdminLeadsPage() {
                 </span>
                 <p className="font-semibold text-ardoise">{lead.full_name}</p>
               </div>
-              <LeadStatusSelect leadId={lead.id} status={lead.status} />
+              <div className="flex items-center gap-3">
+                <ForwardToWhatsApp
+                  members={team}
+                  message={`Nouvelle demande (${TYPE_LABEL[lead.type]}) de ${lead.full_name} — ${lead.phone || lead.email}.\n\n${lead.message ?? ""}`}
+                />
+                <LeadStatusSelect leadId={lead.id} status={lead.status} />
+              </div>
             </div>
 
             <div className="mt-3 flex flex-wrap gap-4 text-sm text-encre/70">

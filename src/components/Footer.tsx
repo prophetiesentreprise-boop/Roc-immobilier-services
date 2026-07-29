@@ -42,10 +42,11 @@ export function Footer({ tagline, logoUrl }: FooterProps) {
           <div>
             <p className="eyebrow text-colombage">Nous contacter</p>
             <ul className="mt-3 space-y-2 text-sm text-craie-100/80">
-              <li>{siteConfig.address.line1}, {siteConfig.address.line2}</li>
-              <li>{siteConfig.address.city}, {siteConfig.address.country}</li>
+              <li>{siteConfig.address.line1}</li>
+              <li>{siteConfig.address.line2}</li>
+              <li>{siteConfig.address.postal}</li>
               <li>{siteConfig.phoneDisplay}</li>
-              <li>{siteConfig.email}</li>
+              {siteConfig.emails.map((email) => <li key={email}>{email}</li>)}
             </ul>
           </div>
         </div>

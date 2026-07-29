@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Building2, Inbox, PlusCircle, AlertTriangle } from "lucide-react";
+import { Building2, Inbox, PlusCircle, AlertTriangle, ClipboardCheck, KeyRound, CalendarClock } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function AdminDashboard() {
@@ -19,9 +19,18 @@ export default async function AdminDashboard() {
     );
   }
 
-  const [{ count: propertiesCount }, { count: newLeadsCount }] = await Promise.all([
+  const [
+    { count: propertiesCount },
+    { count: newLeadsCount },
+    { count: newEstimationsCount },
+    { count: newVisitesCount },
+    { count: newRdvCount },
+  ] = await Promise.all([
     supabase.from("properties").select("*", { count: "exact", head: true }),
     supabase.from("leads").select("*", { count: "exact", head: true }).eq("status", "nouveau"),
+    supabase.from("leads").select("*", { count: "exact", head: true }).eq("status", "nouveau").eq("type", "estimation"),
+    supabase.from("leads").select("*", { count: "exact", head: true }).eq("status", "nouveau").eq("type", "visite"),
+    supabase.from("appointments").select("*", { count: "exact", head: true }).eq("status", "nouveau"),
   ]);
 
   return (
@@ -39,13 +48,39 @@ export default async function AdminDashboard() {
           </p>
           <p className="text-sm text-encre/60">Biens publiés</p>
         </div>
-        <div className="rounded-sm border border-ligne bg-craie-100 p-6">
+
+        <Link href="/admin/leads" className="card-lift rounded-sm border border-ligne bg-craie-100 p-6">
           <Inbox className="text-pinot" size={22} />
           <p className="mt-3 font-[family-name:var(--font-data)] text-3xl font-semibold text-ardoise">
             {newLeadsCount ?? 0}
           </p>
           <p className="text-sm text-encre/60">Nouvelles demandes à traiter</p>
-        </div>
+        </Link>
+
+        <Link href="/admin/rdv" className="card-lift rounded-sm border border-ligne bg-craie-100 p-6">
+          <CalendarClock className="text-pinot" size={22} />
+          <p className="mt-3 font-[family-name:var(--font-data)] text-3xl font-semibold text-ardoise">
+            {newRdvCount ?? 0}
+          </p>
+          <p className="text-sm text-encre/60">Nouveaux rendez-vous</p>
+        </Link>
+
+        <Link href="/admin/leads" className="card-lift rounded-sm border border-ligne bg-craie-100 p-6">
+          <ClipboardCheck className="text-pinot" size={22} />
+          <p className="mt-3 font-[family-name:var(--font-data)] text-3xl font-semibold text-ardoise">
+            {newEstimationsCount ?? 0}
+          </p>
+          <p className="text-sm text-encre/60">Nouvelles demandes d'estimation</p>
+        </Link>
+
+        <Link href="/admin/leads" className="card-lift rounded-sm border border-ligne bg-craie-100 p-6">
+          <KeyRound className="text-pinot" size={22} />
+          <p className="mt-3 font-[family-name:var(--font-data)] text-3xl font-semibold text-ardoise">
+            {newVisitesCount ?? 0}
+          </p>
+          <p className="text-sm text-encre/60">Nouvelles demandes d'achat / visite</p>
+        </Link>
+
         <Link
           href="/admin/biens/nouveau"
           className="flex flex-col justify-center rounded-sm border border-dashed border-pinot/50 bg-pinot/5 p-6 text-pinot hover:bg-pinot/10"

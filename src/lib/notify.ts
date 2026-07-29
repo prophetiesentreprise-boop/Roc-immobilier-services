@@ -13,7 +13,7 @@ import { siteConfig } from "./site-config";
  *   3. Ajoutez-la comme variable d'environnement RESEND_API_KEY dans Vercel
  *      (Project Settings > Environment Variables), puis redéployez.
  *   4. Pour un envoi depuis votre propre domaine (recommandé), vérifiez
- *      rocimmobilierservice.com dans Resend et remplacez RESEND_FROM
+ *      rocimmobilierservices.com dans Resend et remplacez RESEND_FROM
  *      ci-dessous ; sinon l'adresse de test onboarding@resend.dev est
  *      utilisée automatiquement.
  */
@@ -32,7 +32,7 @@ export async function notifyAgency(subject: string, text: string) {
       },
       body: JSON.stringify({
         from,
-        to: [siteConfig.email],
+        to: siteConfig.emails,
         subject,
         text,
       }),

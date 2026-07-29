@@ -87,12 +87,12 @@ export default async function NosServicesPage() {
         <div className="container-roc relative">
           <p className="eyebrow text-colombage">Nos services</p>
           <h1 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold">
-            Un accompagnement complet pour chaque projet immobilier
+            Un <strong className="font-bold">accompagnement complet</strong> pour <strong className="font-bold">chaque projet</strong> immobilier
           </h1>
           <p className="mt-4 max-w-lg text-sm text-craie-100/75">
-            <strong>Vente, achat, location, gestion locative, investissement :</strong> ROC Immobilier Services
+            Vente, achat, location, gestion locative, investissement : ROC Immobilier Services
             réunit sous un même toit toute l'expertise nécessaire à votre projet à
-            Abidjan et sur l'ensemble du territoire ivoirien.
+            Abidjan et dans sa région.
           </p>
         </div>
       </div>

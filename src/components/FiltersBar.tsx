@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
+import { PROPERTY_CATEGORIES } from "@/lib/types";
 
 export function FiltersBar() {
   const router = useRouter();
@@ -54,10 +55,9 @@ export function FiltersBar() {
           className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm"
         >
           <option value="">Tous</option>
-          <option value="Maison">Maison</option>
-          <option value="Appartement">Appartement</option>
-          <option value="Terrain">Terrain</option>
-          <option value="Local commercial">Local commercial</option>
+          {PROPERTY_CATEGORIES.map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
         </select>
       </div>
       <div>

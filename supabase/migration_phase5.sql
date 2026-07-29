@@ -12,16 +12,19 @@ create table if not exists background_images (
 
 alter table background_images enable row level security;
 
+drop policy if exists "Lecture publique des arrière-plans" on background_images;
 create policy "Lecture publique des arrière-plans"
   on background_images for select
   to anon, authenticated
   using (true);
 
+drop policy if exists "Équipe : ajout d'arrière-plans" on background_images;
 create policy "Équipe : ajout d'arrière-plans"
   on background_images for insert
   to authenticated
   with check (true);
 
+drop policy if exists "Équipe : modification des arrière-plans" on background_images;
 create policy "Équipe : modification des arrière-plans"
   on background_images for update
   to authenticated

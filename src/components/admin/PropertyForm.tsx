@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2, Trash2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
-import { Property } from "@/lib/types";
+import { Property, PROPERTY_CATEGORIES } from "@/lib/types";
 import { PhotoUploader } from "@/components/PhotoUploader";
 
 function slugify(text: string) {
@@ -109,10 +109,9 @@ export function PropertyForm({ property }: { property?: Property }) {
         <div>
           <label className="eyebrow mb-1 block">Type de bien *</label>
           <select name="category" defaultValue={property?.category ?? "Maison"} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm">
-            <option value="Maison">Maison</option>
-            <option value="Appartement">Appartement</option>
-            <option value="Terrain">Terrain</option>
-            <option value="Local commercial">Local commercial</option>
+            {PROPERTY_CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
           </select>
         </div>
       </div>

@@ -2,9 +2,20 @@ export type PropertyKind = "vente" | "location";
 
 export type PropertyCategory =
   | "Maison"
+  | "Villa"
+  | "Duplex"
+  | "Immeuble"
   | "Appartement"
+  | "Studio"
   | "Terrain"
-  | "Local commercial";
+  | "Local commercial"
+  | "Bureau"
+  | "Autre";
+
+export const PROPERTY_CATEGORIES: PropertyCategory[] = [
+  "Maison", "Villa", "Duplex", "Immeuble", "Appartement", "Studio",
+  "Terrain", "Local commercial", "Bureau", "Autre",
+];
 
 export interface Property {
   id: string;
@@ -63,6 +74,9 @@ export interface TeamMember {
   phone: string;
   email: string;
   whatsapp: string;
+  facebook_url: string;
+  instagram_url: string;
+  linkedin_url: string;
   display_order: number;
   created_at: string;
 }

@@ -38,9 +38,9 @@ export default async function RdvPage() {
           </div>
 
           <div className="mt-8 space-y-4 text-sm text-encre/80">
-            <p className="flex items-center gap-3">
-              <MapPin size={18} className="text-pinot" />
-              {siteConfig.address.line1}, {siteConfig.address.line2} — {siteConfig.address.city}
+            <p className="flex items-start gap-3">
+              <MapPin size={18} className="mt-0.5 shrink-0 text-pinot" />
+              <span>{siteConfig.address.line1}, {siteConfig.address.line2}</span>
             </p>
             <p className="flex items-center gap-3"><Phone size={18} className="text-pinot" /> {siteConfig.phoneDisplay}</p>
             <p className="flex items-center gap-3"><Clock size={18} className="text-pinot" /> {siteConfig.hours}</p>

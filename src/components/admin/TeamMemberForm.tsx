@@ -33,6 +33,9 @@ export function TeamMemberForm({ member }: { member?: TeamMember }) {
       phone: form.get("phone"),
       email: form.get("email"),
       whatsapp: form.get("whatsapp"),
+      facebook_url: form.get("facebook_url"),
+      instagram_url: form.get("instagram_url"),
+      linkedin_url: form.get("linkedin_url"),
       display_order: Number(form.get("display_order") ?? 0),
     };
 
@@ -97,6 +100,21 @@ export function TeamMemberForm({ member }: { member?: TeamMember }) {
         <div>
           <label className="eyebrow mb-1 block">WhatsApp</label>
           <input name="whatsapp" defaultValue={member?.whatsapp} placeholder="2250123456789" className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
+        </div>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div>
+          <label className="eyebrow mb-1 block">Facebook</label>
+          <input name="facebook_url" defaultValue={member?.facebook_url} placeholder="https://facebook.com/..." className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label className="eyebrow mb-1 block">Instagram</label>
+          <input name="instagram_url" defaultValue={member?.instagram_url} placeholder="https://instagram.com/..." className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label className="eyebrow mb-1 block">LinkedIn</label>
+          <input name="linkedin_url" defaultValue={member?.linkedin_url} placeholder="https://linkedin.com/in/..." className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
         </div>
       </div>
 

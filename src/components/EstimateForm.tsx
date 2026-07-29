@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { PhotoUploader } from "@/components/PhotoUploader";
+import { PROPERTY_CATEGORIES } from "@/lib/types";
 
 export function EstimateForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
@@ -85,10 +86,9 @@ export function EstimateForm() {
         <div>
           <label className="eyebrow mb-1 block">Type de bien *</label>
           <select name="property_type" required className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm">
-            <option value="Maison">Maison</option>
-            <option value="Appartement">Appartement</option>
-            <option value="Terrain">Terrain</option>
-            <option value="Local commercial">Local commercial</option>
+            {PROPERTY_CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
           </select>
         </div>
         <div>

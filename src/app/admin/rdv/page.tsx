@@ -1,7 +1,8 @@
 import { AlertTriangle, Mail, Phone, CalendarClock } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
-import { Appointment } from "@/lib/types";
+import { Appointment, TeamMember } from "@/lib/types";
 import { AppointmentStatusSelect } from "@/components/admin/AppointmentStatusSelect";
+import { ForwardToWhatsApp } from "@/components/admin/ForwardToWhatsApp";
 
 export default async function AdminRdvPage() {
   const supabase = await createClient();
@@ -18,11 +19,12 @@ export default async function AdminRdvPage() {
     );
   }
 
-  const { data } = await supabase
-    .from("appointments")
-    .select("*")
-    .order("appointment_date", { ascending: true });
+  const [{ data }, { data: teamData }] = await Promise.all([
+    supabase.from("appointments").select("*").order("appointment_date", { ascending: true }),
+    supabase.from("team_members").select("*").order("display_order", { ascending: true }),
+  ]);
   const appointments = (data ?? []) as Appointment[];
+  const team = (teamData ?? []) as TeamMember[];
 
   return (
     <div>
@@ -44,7 +46,13 @@ export default async function AdminRdvPage() {
                 </span>
                 <p className="font-semibold text-ardoise">{rdv.full_name}</p>
               </div>
-              <AppointmentStatusSelect id={rdv.id} status={rdv.status} />
+              <div className="flex items-center gap-3">
+                <ForwardToWhatsApp
+                  members={team}
+                  message={`RDV demandé par ${rdv.full_name} le ${rdv.appointment_date} à ${rdv.appointment_time}.\n\nMotif : ${rdv.reason}\nTéléphone : ${rdv.phone}`}
+                />
+                <AppointmentStatusSelect id={rdv.id} status={rdv.status} />
+              </div>
             </div>
 
             <p className="mt-2 text-sm text-encre/70">Motif : {rdv.reason}</p>

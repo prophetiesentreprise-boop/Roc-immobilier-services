@@ -1,20 +1,44 @@
 import Link from "next/link";
 import { LayoutDashboard, Building2, Inbox, CalendarClock, Settings, Users, Image as ImageIcon, ExternalLink } from "lucide-react";
 import { SignOutButton } from "@/components/admin/SignOutButton";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata = { title: "Espace professionnel — ROC Immobilier Services" };
 
-const NAV = [
-  { href: "/admin", label: "Tableau de bord", icon: LayoutDashboard },
-  { href: "/admin/biens", label: "Biens", icon: Building2 },
-  { href: "/admin/equipe", label: "Notre équipe", icon: Users },
-  { href: "/admin/leads", label: "Demandes reçues", icon: Inbox },
-  { href: "/admin/rdv", label: "Rendez-vous", icon: CalendarClock },
-  { href: "/admin/arriere-plans", label: "Arrière-plans", icon: ImageIcon },
-  { href: "/admin/parametres", label: "Réglages du site", icon: Settings },
-];
+function NavBadge({ count }: { count: number }) {
+  if (!count) return null;
+  return (
+    <span className="ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-pinot px-1.5 text-[0.65rem] font-semibold text-craie-100">
+      {count}
+    </span>
+  );
+}
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const supabase = await createClient();
+
+  let leadsCount = 0;
+  let rdvCount = 0;
+
+  if (supabase) {
+    const [{ count: leads }, { count: rdv }] = await Promise.all([
+      supabase.from("leads").select("*", { count: "exact", head: true }).eq("status", "nouveau"),
+      supabase.from("appointments").select("*", { count: "exact", head: true }).eq("status", "nouveau"),
+    ]);
+    leadsCount = leads ?? 0;
+    rdvCount = rdv ?? 0;
+  }
+
+  const NAV = [
+    { href: "/admin", label: "Tableau de bord", icon: LayoutDashboard, badge: 0 },
+    { href: "/admin/biens", label: "Biens", icon: Building2, badge: 0 },
+    { href: "/admin/equipe", label: "Notre équipe", icon: Users, badge: 0 },
+    { href: "/admin/leads", label: "Demandes reçues", icon: Inbox, badge: leadsCount },
+    { href: "/admin/rdv", label: "Rendez-vous", icon: CalendarClock, badge: rdvCount },
+    { href: "/admin/arriere-plans", label: "Arrière-plans", icon: ImageIcon, badge: 0 },
+    { href: "/admin/parametres", label: "Réglages du site", icon: Settings, badge: 0 },
+  ];
+
   return (
     <div className="min-h-screen bg-craie">
       <div className="grid lg:grid-cols-[240px_1fr]">
@@ -22,14 +46,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <p className="font-[family-name:var(--font-display)] text-lg font-semibold">
             ROC <span className="text-colombage">Back-office</span>
           </p>
-          <nav className="mt-8 flex flex-row gap-2 lg:flex-col">
-            {NAV.map(({ href, label, icon: Icon }) => (
+          <nav className="mt-8 flex flex-row flex-wrap gap-2 lg:flex-col lg:flex-nowrap">
+            {NAV.map(({ href, label, icon: Icon, badge }) => (
               <Link
                 key={href}
                 href={href}
                 className="flex items-center gap-2 rounded-sm px-3 py-2 text-sm text-craie-100/80 hover:bg-ardoise-700 hover:text-craie-100"
               >
                 <Icon size={16} /> {label}
+                <NavBadge count={badge} />
               </Link>
             ))}
           </nav>
