@@ -6,9 +6,15 @@ import { RooflineMotif } from "@/components/RooflineMotif";
 import { StatCard } from "@/components/StatCard";
 import { getFeaturedProperties } from "@/lib/properties";
 import { getSiteSettings } from "@/lib/site-settings";
+import { getBackgroundImages } from "@/lib/backgrounds";
+import { PhotoBackdrop } from "@/components/PhotoBackdrop";
 
 export default async function Home() {
-  const [featured, settings] = await Promise.all([getFeaturedProperties(), getSiteSettings()]);
+  const [featured, settings, backgrounds] = await Promise.all([
+    getFeaturedProperties(),
+    getSiteSettings(),
+    getBackgroundImages(),
+  ]);
 
   const titleWords = settings.hero_title.trim().split(" ");
   const lastWord = titleWords.pop();
@@ -42,9 +48,10 @@ export default async function Home() {
           </div>
 
           <div className="relative h-[420px] overflow-hidden rounded-sm border border-ligne bg-ardoise">
-            <div
-              className="absolute inset-0"
-              style={{ background: "linear-gradient(150deg, #3340B6 0%, #262F82 75%)" }}
+            <PhotoBackdrop
+              photoUrl={backgrounds.home_hero}
+              fallbackGradient="linear-gradient(150deg, #3340B6 0%, #262F82 75%)"
+              overlay="bg-ardoise/35"
             />
             <RooflineMotif className="absolute bottom-0 left-0 w-full h-2/3 text-craie/10" />
             <div className="absolute left-6 top-6 right-6 rounded-sm bg-craie-100/95 p-5">
@@ -180,6 +187,7 @@ export default async function Home() {
       {/* CTA ESTIMATION */}
       <section className="container-roc pb-24">
         <div className="relative overflow-hidden rounded-sm bg-pinot px-8 py-16 text-craie-100 sm:px-16">
+          <PhotoBackdrop photoUrl={backgrounds.home_cta} fallbackGradient="none" overlay="bg-pinot/70" />
           <RooflineMotif className="absolute -bottom-4 left-0 w-full h-24 text-craie-100/10" />
           <div className="relative max-w-lg">
             <p className="eyebrow text-craie-100/70">Estimation gratuite</p>

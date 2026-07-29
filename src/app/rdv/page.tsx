@@ -2,16 +2,18 @@ import { CalendarClock, MapPin, Phone, Clock } from "lucide-react";
 import { AppointmentForm } from "@/components/AppointmentForm";
 import { siteConfig } from "@/lib/site-config";
 import { getSiteSettings } from "@/lib/site-settings";
+import { getBackgroundImages } from "@/lib/backgrounds";
 import { PageLetterhead } from "@/components/PageLetterhead";
 
 export const metadata = { title: "Prendre rendez-vous — ROC Immobilier Services" };
 
 export default async function RdvPage() {
-  const settings = await getSiteSettings();
+  const [settings, backgrounds] = await Promise.all([getSiteSettings(), getBackgroundImages()]);
   return (
     <div>
       <PageLetterhead
         logoUrl={settings.logo_url}
+        photoUrl={backgrounds.letterhead}
         eyebrow="Rendez-vous"
         tagline="Un moment dédié, entièrement pour votre projet."
       />

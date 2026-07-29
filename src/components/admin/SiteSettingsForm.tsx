@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
-import { SiteSettings } from "@/lib/site-settings";
+import type { SiteSettings } from "@/lib/site-settings";
 import { SingleImageUploader } from "./SingleImageUploader";
 
 export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {

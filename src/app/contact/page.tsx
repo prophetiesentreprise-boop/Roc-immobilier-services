@@ -2,16 +2,18 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import { getSiteSettings } from "@/lib/site-settings";
+import { getBackgroundImages } from "@/lib/backgrounds";
 import { PageLetterhead } from "@/components/PageLetterhead";
 
 export const metadata = { title: "Contact — ROC Immobilier Services" };
 
 export default async function ContactPage() {
-  const settings = await getSiteSettings();
+  const [settings, backgrounds] = await Promise.all([getSiteSettings(), getBackgroundImages()]);
   return (
     <div>
       <PageLetterhead
         logoUrl={settings.logo_url}
+        photoUrl={backgrounds.letterhead}
         eyebrow="Contact"
         tagline="Nous sommes à votre écoute, à chaque étape de votre projet."
       />

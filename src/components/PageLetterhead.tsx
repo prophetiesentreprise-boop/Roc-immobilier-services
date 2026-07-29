@@ -1,18 +1,22 @@
 import { Logo } from "./Logo";
 import { RooflineMotif } from "./RooflineMotif";
+import { PhotoBackdrop } from "./PhotoBackdrop";
 
 interface PageLetterheadProps {
   logoUrl: string | null;
   eyebrow: string;
   tagline: string;
+  photoUrl?: string | null;
 }
 
-export function PageLetterhead({ logoUrl, eyebrow, tagline }: PageLetterheadProps) {
+export function PageLetterhead({ logoUrl, eyebrow, tagline, photoUrl }: PageLetterheadProps) {
   return (
-    <div
-      className="relative overflow-hidden py-12 text-craie-100"
-      style={{ background: "linear-gradient(120deg, #262F82 0%, #FE5100 140%)" }}
-    >
+    <div className="relative overflow-hidden py-12 text-craie-100">
+      <PhotoBackdrop
+        photoUrl={photoUrl}
+        fallbackGradient="linear-gradient(120deg, #262F82 0%, #FE5100 140%)"
+        overlay="bg-ardoise/45"
+      />
       <RooflineMotif className="absolute bottom-0 left-0 w-full h-14 text-craie-100/10" />
       <div className="container-roc relative flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Logo logoUrl={logoUrl} variant="light" className="h-12 w-auto max-w-[200px] object-contain" />
