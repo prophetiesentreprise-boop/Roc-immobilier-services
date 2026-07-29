@@ -30,7 +30,7 @@ export default async function PropertyPage({ params }: PageProps) {
       ) : (
         <div
           className="relative h-72 sm:h-96"
-          style={{ background: `linear-gradient(160deg, ${property.cover_color} 0%, #202B38 130%)` }}
+          style={{ background: `linear-gradient(160deg, ${property.cover_color} 0%, #262F82 130%)` }}
         >
           <RooflineMotif className="absolute bottom-0 left-0 w-full h-24 text-craie-100/10" />
         </div>

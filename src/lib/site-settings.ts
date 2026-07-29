@@ -2,6 +2,7 @@ import { createClient } from "./supabase/server";
 
 export interface SiteSettings {
   logo_url: string | null;
+  agency_hero_photo_url: string | null;
   hero_eyebrow: string;
   hero_title: string;
   hero_subtitle: string;
@@ -17,6 +18,7 @@ export interface SiteSettings {
 
 export const defaultSiteSettings: SiteSettings = {
   logo_url: null,
+  agency_hero_photo_url: null,
   hero_eyebrow: "Agence indépendante à Abidjan · depuis 2016",
   hero_title: "L'immobilier ivoirien, conseillé avec exigence.",
   hero_subtitle:

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, Building2, Inbox, CalendarClock, Settings, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Building2, Inbox, CalendarClock, Settings, Users, ExternalLink } from "lucide-react";
 import { SignOutButton } from "@/components/admin/SignOutButton";
 
 export const metadata = { title: "Espace professionnel — ROC Immobilier Services" };
@@ -7,6 +7,7 @@ export const metadata = { title: "Espace professionnel — ROC Immobilier Servic
 const NAV = [
   { href: "/admin", label: "Tableau de bord", icon: LayoutDashboard },
   { href: "/admin/biens", label: "Biens", icon: Building2 },
+  { href: "/admin/equipe", label: "Notre équipe", icon: Users },
   { href: "/admin/leads", label: "Demandes reçues", icon: Inbox },
   { href: "/admin/rdv", label: "Rendez-vous", icon: CalendarClock },
   { href: "/admin/parametres", label: "Réglages du site", icon: Settings },

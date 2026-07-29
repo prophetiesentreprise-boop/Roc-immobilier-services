@@ -11,7 +11,7 @@ const SERVICES = [
     icon: Handshake,
     title: "Vente",
     tag: "Propriétaires",
-    color: "#8B5A34",
+    color: "#3340B6",
     text:
       "De l'estimation à la signature définitive, nous pilotons chaque étape de la vente de votre bien : diffusion ciblée, visites qualifiées, négociation et suivi jusqu'à l'acte notarié.",
     points: ["Estimation gratuite", "Diffusion large de l'annonce", "Négociation par un expert", "Suivi du dossier notarial"],
@@ -21,7 +21,7 @@ const SERVICES = [
     icon: KeyRound,
     title: "Achat",
     tag: "Acquéreurs & investisseurs",
-    color: "#5F6F52",
+    color: "#4C8B57",
     text:
       "Nous recherchons pour vous le bien qui correspond réellement à votre projet — résidence principale ou investissement locatif — et vous accompagnons jusqu'à la remise des clés.",
     points: ["Recherche personnalisée", "Visites organisées", "Analyse du marché local", "Accompagnement financement"],
@@ -31,7 +31,7 @@ const SERVICES = [
     icon: ClipboardList,
     title: "Location",
     tag: "Locataires & propriétaires",
-    color: "#202B38",
+    color: "#262F82",
     text:
       "Sélection rigoureuse des candidats, constitution du dossier locataire, rédaction du bail et état des lieux : une mise en location sereine, des deux côtés.",
     points: ["Vérification des dossiers", "Rédaction du bail", "État des lieux numérique", "Remise des clés"],
@@ -41,7 +41,7 @@ const SERVICES = [
     icon: ShieldCheck,
     title: "Gestion locative",
     tag: "Propriétaires bailleurs",
-    color: "#6E2A34",
+    color: "#FE5100",
     text:
       "Confiez la gestion quotidienne de votre bien : encaissement des loyers, relances, coordination des travaux et reporting mensuel clair et transparent.",
     points: ["Encaissement des loyers", "Relance des impayés", "Suivi des travaux", "Reporting mensuel"],
@@ -51,7 +51,7 @@ const SERVICES = [
     icon: Building2,
     title: "Investissement immobilier",
     tag: "Investisseurs",
-    color: "#8B5A34",
+    color: "#3340B6",
     text:
       "Nous identifions les opportunités les plus rentables du marché abidjanais et vous aidons à construire un patrimoine immobilier durable, en location ou en revente.",
     points: ["Analyse de rentabilité", "Sélection d'opportunités", "Simulation de revenus locatifs", "Suivi post-acquisition"],
@@ -61,7 +61,7 @@ const SERVICES = [
     icon: Scale,
     title: "Accompagnement juridique",
     tag: "Tous nos clients",
-    color: "#5F6F52",
+    color: "#4C8B57",
     text:
       "Nous coordonnons les démarches administratives et juridiques liées à votre projet (titres fonciers, actes, formalités notariales) avec nos partenaires de confiance.",
     points: ["Vérification des titres", "Coordination notariale", "Conformité réglementaire", "Conseils personnalisés"],
@@ -96,7 +96,7 @@ export default function NosServicesPage() {
             >
               <div
                 className="relative h-64 overflow-hidden rounded-sm"
-                style={{ background: `linear-gradient(150deg, ${service.color} 0%, #202B38 130%)` }}
+                style={{ background: `linear-gradient(150deg, ${service.color} 0%, #262F82 130%)` }}
               >
                 <RooflineMotif className="absolute bottom-0 left-0 w-full h-16 text-craie-100/10" />
                 <service.icon className="absolute right-6 top-6 text-craie-100/70" size={32} />

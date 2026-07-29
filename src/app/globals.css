@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  /* --- ROC Immobilier Services design tokens --- */
-  --ardoise: #202b38;      /* ink navy-charcoal — headers, footer, dark sections */
-  --ardoise-700: #2b3947;
-  --craie: #eae3d2;        /* warm stone parchment — page background */
-  --craie-100: #f4f0e6;    /* lighter card background */
-  --colombage: #8b5a34;    /* timber brown — secondary accent */
-  --pinot: #6e2a34;        /* wine burgundy — primary CTA accent */
-  --pinot-600: #82333f;
-  --vigne: #5f6f52;        /* sage green — tags, DPE, success */
-  --encre: #211d17;        /* near-black warm ink — body text */
-  --encre-60: #211d1799;
-  --ligne: #d8cfb8;        /* hairline border on craie background */
+  /* --- ROC Immobilier Services design tokens (calqués sur le logo) --- */
+  --ardoise: #262f82;      /* bleu roi foncé (logo) — grands aplats sombres, en-têtes */
+  --ardoise-700: #303b99;
+  --craie: #f3f1ea;        /* neutre clair — fond de page */
+  --craie-100: #f8f6f1;    /* neutre plus clair — fond de carte */
+  --colombage: #3340b6;    /* bleu roi (logo) — accent secondaire */
+  --pinot: #fe5100;        /* orange (logo) — accent principal / CTA */
+  --pinot-600: #e04600;
+  --vigne: #4c8b57;        /* vert — DPE, succès, WhatsApp */
+  --encre: #1c1d2b;        /* quasi-noir à dominante bleutée — texte */
+  --encre-60: #1c1d2b99;
+  --ligne: #dcdae3;        /* liseré clair, neutre froid */
 }
 
 @theme inline {

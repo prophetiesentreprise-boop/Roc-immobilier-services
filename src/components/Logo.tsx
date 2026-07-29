@@ -12,7 +12,7 @@ export function Logo({ logoUrl, className, variant = "dark" }: LogoProps) {
 
   return (
     <span
-      className={`font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight ${
+      className={`font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight ${
         variant === "dark" ? "text-ardoise" : "text-craie-100"
       }`}
     >

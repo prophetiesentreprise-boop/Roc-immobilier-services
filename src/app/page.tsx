@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ShieldCheck, KeyRound, ClipboardList, Handshake, Star, ArrowRight, Compass, Zap, HeartHandshake } from "lucide-react";
+import { ShieldCheck, KeyRound, ClipboardList, Handshake, Star, ArrowRight, Compass, Zap, HeartHandshake, Award } from "lucide-react";
 import { HeroSearch } from "@/components/HeroSearch";
 import { PropertyCard } from "@/components/PropertyCard";
 import { RooflineMotif } from "@/components/RooflineMotif";
+import { StatCard } from "@/components/StatCard";
 import { getFeaturedProperties } from "@/lib/properties";
 import { getSiteSettings } from "@/lib/site-settings";
 
@@ -43,7 +44,7 @@ export default async function Home() {
           <div className="relative h-[420px] overflow-hidden rounded-sm border border-ligne bg-ardoise">
             <div
               className="absolute inset-0"
-              style={{ background: "linear-gradient(150deg, #8B5A34 0%, #202B38 75%)" }}
+              style={{ background: "linear-gradient(150deg, #3340B6 0%, #262F82 75%)" }}
             />
             <RooflineMotif className="absolute bottom-0 left-0 w-full h-2/3 text-craie/10" />
             <div className="absolute left-6 top-6 right-6 rounded-sm bg-craie-100/95 p-5">
@@ -81,21 +82,18 @@ export default async function Home() {
       </section>
 
       {/* STATS */}
-      <section className="border-b border-ligne bg-ardoise text-craie-100">
-        <div className="container-roc grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
-          {[
-            ["9 ans", "d'expertise locale"],
-            ["100%", "biens vérifiés & agréés"],
-            ["24h", "délai moyen de réponse"],
-            ["4/4", "activités : vente, achat, location, gestion"],
-          ].map(([value, label]) => (
-            <div key={label}>
-              <p className="font-[family-name:var(--font-display)] text-3xl font-semibold text-colombage">
-                {value}
-              </p>
-              <p className="mt-1 text-xs text-craie-100/70">{label}</p>
-            </div>
-          ))}
+      <section className="bg-ardoise py-16">
+        <div className="container-roc">
+          <p className="eyebrow text-colombage">En chiffres</p>
+          <h2 className="mt-2 max-w-md font-[family-name:var(--font-display)] text-2xl font-semibold text-craie-100">
+            Une expertise qui se mesure, pas seulement qui se déclare
+          </h2>
+          <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <StatCard icon={Award} value="9 ans" label="d'expertise locale" accent="#5A66C9" />
+            <StatCard icon={ShieldCheck} value="100%" label="biens vérifiés & agréés" accent="#4C8B57" />
+            <StatCard icon={Zap} value="24h" label="délai moyen de réponse" accent="#3340B6" />
+            <StatCard icon={Handshake} value="4/4" label="activités : vente, achat, location, gestion" accent="#FE5100" />
+          </div>
         </div>
       </section>
 

@@ -1,7 +1,9 @@
-import { ShieldCheck, Users, Award, Target, Heart, Handshake } from "lucide-react";
+import { ShieldCheck, Users, Award, Target, Heart, Handshake, Zap, Phone, Mail, MessageCircle } from "lucide-react";
 import { RooflineMotif } from "@/components/RooflineMotif";
+import { StatCard } from "@/components/StatCard";
 import { siteConfig } from "@/lib/site-config";
 import { getSiteSettings } from "@/lib/site-settings";
+import { getTeamMembers } from "@/lib/team";
 
 export const metadata = { title: "L'agence — ROC Immobilier Services" };
 
@@ -12,24 +14,30 @@ const VALEURS = [
   { icon: Handshake, title: "Engagement", text: "Nous restons disponibles jusqu'à la conclusion effective de votre projet, et au-delà si besoin." },
 ];
 
-const EQUIPE = [
-  { role: "Direction", text: "Pilotage général de l'agence et des grands comptes." },
-  { role: "Conseillers Vente & Achat", text: "Accompagnement des particuliers et investisseurs." },
-  { role: "Gestion locative", text: "Suivi des propriétaires bailleurs et des locataires." },
-];
-
 export default async function AgencePage() {
-  const settings = await getSiteSettings();
+  const [settings, team] = await Promise.all([getSiteSettings(), getTeamMembers()]);
+  const heroPhoto = settings.agency_hero_photo_url;
+
   return (
     <div>
-      <div className="relative overflow-hidden bg-ardoise py-24 text-craie-100">
-        <RooflineMotif className="absolute bottom-0 left-0 w-full h-20 text-craie-100/5" />
+      {/* BANNIERE */}
+      <div className="relative overflow-hidden py-24 text-craie-100">
+        {heroPhoto ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={heroPhoto} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ardoise via-ardoise/80 to-colombage/50" />
+          </>
+        ) : (
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #3340B6 0%, #FE5100 55%, #262F82 100%)" }} />
+        )}
+        <RooflineMotif className="absolute bottom-0 left-0 w-full h-20 text-craie-100/10" />
         <div className="container-roc relative">
-          <p className="eyebrow text-colombage">L'agence</p>
+          <p className="eyebrow text-craie-100/80">L'agence</p>
           <h1 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold sm:text-5xl">
             Une agence indépendante, fondée sur des valeurs humaines
           </h1>
-          <p className="mt-5 max-w-xl text-sm text-craie-100/75">
+          <p className="mt-5 max-w-xl text-sm text-craie-100/85">
             Depuis {siteConfig.since}, ROC Immobilier Services accompagne particuliers et
             investisseurs à {siteConfig.city} dans leurs projets de vente, d'achat, de
             location et de gestion locative — avec la même exigence à chaque étape.
@@ -38,19 +46,12 @@ export default async function AgencePage() {
       </div>
 
       {/* CHIFFRES CLES */}
-      <div className="border-b border-ligne bg-craie-100">
-        <div className="container-roc grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
-          {[
-            ["9 ans", "d'expertise locale"],
-            ["100%", "biens vérifiés"],
-            ["24h", "délai moyen de réponse"],
-            ["3", "expertises réunies : vente, location, gestion"],
-          ].map(([value, label]) => (
-            <div key={label}>
-              <p className="font-[family-name:var(--font-display)] text-3xl font-semibold text-pinot">{value}</p>
-              <p className="mt-1 text-xs text-encre/60">{label}</p>
-            </div>
-          ))}
+      <div className="bg-ardoise py-14">
+        <div className="container-roc grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <StatCard icon={Award} value="9 ans" label="d'expertise locale" accent="#5A66C9" />
+          <StatCard icon={ShieldCheck} value="100%" label="biens vérifiés" accent="#4C8B57" />
+          <StatCard icon={Zap} value="24h" label="délai moyen de réponse" accent="#3340B6" />
+          <StatCard icon={Handshake} value="3" label="expertises réunies : vente, location, gestion" accent="#FE5100" />
         </div>
       </div>
 
@@ -108,7 +109,7 @@ export default async function AgencePage() {
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {VALEURS.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="rounded-sm border border-ligne bg-craie p-6">
+              <div key={title} className="card-lift rounded-sm border border-ligne bg-craie p-6">
                 <Icon className="text-pinot" size={24} />
                 <p className="mt-3 font-[family-name:var(--font-display)] font-semibold text-ardoise">{title}</p>
                 <p className="mt-2 text-sm text-encre/70">{text}</p>
@@ -124,21 +125,55 @@ export default async function AgencePage() {
         <h2 className="mt-2 max-w-lg font-[family-name:var(--font-display)] text-2xl font-semibold text-ardoise">
           Des experts dédiés à chaque étape de votre projet
         </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {EQUIPE.map((member) => (
-            <div key={member.role} className="rounded-sm border border-ligne bg-craie-100 p-6">
-              <div
-                className="h-32 w-full rounded-sm"
-                style={{ background: "linear-gradient(150deg, #8B5A34 0%, #202B38 130%)" }}
-              />
-              <p className="mt-4 font-[family-name:var(--font-display)] font-semibold text-ardoise">{member.role}</p>
-              <p className="mt-1 text-sm text-encre/65">{member.text}</p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {team.map((member) => (
+            <div key={member.id} className="card-lift overflow-hidden rounded-sm border border-ligne bg-craie-100">
+              <div className="relative h-44 w-full overflow-hidden bg-craie">
+                {member.photo_url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={member.photo_url} alt={member.full_name} className="h-full w-full object-cover" />
+                ) : (
+                  <div
+                    className="h-full w-full"
+                    style={{ background: "linear-gradient(150deg, #3340B6 0%, #262F82 130%)" }}
+                  />
+                )}
+              </div>
+              <div className="p-5">
+                <p className="font-[family-name:var(--font-display)] font-semibold text-ardoise">{member.full_name}</p>
+                <p className="mt-1 text-sm text-encre/65">{member.role}</p>
+
+                {(member.phone || member.email || member.whatsapp) && (
+                  <div className="mt-4 flex gap-3 border-t border-ligne pt-4">
+                    {member.phone && (
+                      <a href={`tel:${member.phone}`} aria-label={`Appeler ${member.full_name}`} className="text-pinot hover:opacity-70">
+                        <Phone size={16} />
+                      </a>
+                    )}
+                    {member.email && (
+                      <a href={`mailto:${member.email}`} aria-label={`Écrire à ${member.full_name}`} className="text-pinot hover:opacity-70">
+                        <Mail size={16} />
+                      </a>
+                    )}
+                    {member.whatsapp && (
+                      <a
+                        href={`https://wa.me/${member.whatsapp}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`WhatsApp de ${member.full_name}`}
+                        className="text-pinot hover:opacity-70"
+                      >
+                        <MessageCircle size={16} />
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
         <p className="mt-4 text-xs text-encre/50">
-          Remplacez ces blocs par les photos et noms réels de votre équipe une fois
-          l'upload de photos activé (voir Phase 2 du projet).
+          Modifiable à tout moment depuis le back-office : Menu « Notre équipe ».
         </p>
       </div>
     </div>

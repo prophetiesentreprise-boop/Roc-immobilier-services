@@ -1,16 +1,25 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
+import { getSiteSettings } from "@/lib/site-settings";
+import { PageLetterhead } from "@/components/PageLetterhead";
 
 export const metadata = { title: "Contact — ROC Immobilier Services" };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
   return (
-    <div className="container-roc grid gap-14 py-16 lg:grid-cols-[1fr_1.1fr]">
+    <div>
+      <PageLetterhead
+        logoUrl={settings.logo_url}
+        eyebrow="Contact"
+        tagline="Nous sommes à votre écoute, à chaque étape de votre projet."
+      />
+      <div className="container-roc grid gap-14 py-16 lg:grid-cols-[1fr_1.1fr]">
       <div>
         <p className="eyebrow">Contact</p>
         <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl font-semibold text-ardoise">
-          Parlons de votre projet
+          Parlons de <span className="italic text-pinot">votre projet</span>
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-encre/75">
           Notre équipe vous répond sous 24h ouvrées. Pour une réponse plus rapide,
@@ -60,6 +69,7 @@ export default function ContactPage() {
           notre espace professionnel. Pour une réponse encore plus rapide, écrivez-nous
           directement via WhatsApp ci-contre.
         </p>
+      </div>
       </div>
     </div>
   );

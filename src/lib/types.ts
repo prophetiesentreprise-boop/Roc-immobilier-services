@@ -54,3 +54,15 @@ export interface Appointment {
   message: string;
   status: "nouveau" | "confirme" | "annule";
 }
+
+export interface TeamMember {
+  id: string;
+  full_name: string;
+  role: string;
+  photo_url: string | null;
+  phone: string;
+  email: string;
+  whatsapp: string;
+  display_order: number;
+  created_at: string;
+}

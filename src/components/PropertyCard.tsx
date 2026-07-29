@@ -15,7 +15,7 @@ export function PropertyCard({ property }: { property: Property }) {
         style={
           property.photos?.[0]
             ? undefined
-            : { background: `linear-gradient(160deg, ${property.cover_color} 0%, #202b38 130%)` }
+            : { background: `linear-gradient(160deg, ${property.cover_color} 0%, #262f82 130%)` }
         }
       >
         {property.photos?.[0] ? (

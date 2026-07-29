@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { SiteSettings } from "@/lib/site-settings";
-import { LogoUploader } from "./LogoUploader";
+import { SingleImageUploader } from "./SingleImageUploader";
 
 export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
   const router = useRouter();
   const [logoUrl, setLogoUrl] = useState<string | null>(settings.logo_url);
+  const [heroPhotoUrl, setHeroPhotoUrl] = useState<string | null>(settings.agency_hero_photo_url);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
@@ -30,6 +31,7 @@ export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
     const form = new FormData(e.currentTarget);
     const payload = {
       logo_url: logoUrl,
+      agency_hero_photo_url: heroPhotoUrl,
       hero_eyebrow: form.get("hero_eyebrow"),
       hero_title: form.get("hero_title"),
       hero_subtitle: form.get("hero_subtitle"),
@@ -58,7 +60,13 @@ export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
   return (
     <form onSubmit={handleSubmit} className="grid max-w-2xl gap-8">
       <div className="rounded-sm border border-ligne bg-craie-100 p-5">
-        <LogoUploader logoUrl={logoUrl} onChange={setLogoUrl} />
+        <SingleImageUploader
+          imageUrl={logoUrl}
+          onChange={setLogoUrl}
+          label="Logo de l'agence"
+          folder="logo"
+          hint="Format recommandé : PNG avec fond transparent, environ 400×120 px."
+        />
       </div>
 
       <div className="rounded-sm border border-ligne bg-craie-100 p-5">
@@ -104,8 +112,19 @@ export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
 
       <div className="rounded-sm border border-ligne bg-craie-100 p-5">
         <p className="eyebrow mb-3">Page « L'agence »</p>
-        <label className="eyebrow mb-1 block">Premier paragraphe de présentation</label>
-        <textarea name="agency_intro" rows={4} defaultValue={settings.agency_intro} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
+        <div className="grid gap-4">
+          <SingleImageUploader
+            imageUrl={heroPhotoUrl}
+            onChange={setHeroPhotoUrl}
+            label="Photo de fond de la bannière"
+            folder="agence"
+            hint="Une photo large (bâtiment, équipe, ville) rend la bannière plus vivante. Sans photo, un dégradé de couleur chaleureux s'affiche à la place."
+          />
+          <div>
+            <label className="eyebrow mb-1 block">Premier paragraphe de présentation</label>
+            <textarea name="agency_intro" rows={4} defaultValue={settings.agency_intro} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
+          </div>
+        </div>
       </div>
 
       <div className="rounded-sm border border-ligne bg-craie-100 p-5">

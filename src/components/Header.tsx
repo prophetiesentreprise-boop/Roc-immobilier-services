@@ -20,9 +20,9 @@ export function Header({ logoUrl }: { logoUrl: string | null }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-ligne bg-craie-100/95 backdrop-blur">
-      <div className="container-roc flex h-20 items-center justify-between">
+      <div className="container-roc flex h-24 items-center justify-between">
         <Link href="/" className="flex items-center">
-          <Logo logoUrl={logoUrl} className="h-11 w-auto" />
+          <Logo logoUrl={logoUrl} className="h-16 w-auto max-w-[220px] object-contain" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7">
