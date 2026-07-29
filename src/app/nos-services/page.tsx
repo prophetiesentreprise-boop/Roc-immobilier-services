@@ -90,9 +90,9 @@ export default async function NosServicesPage() {
             Un accompagnement complet pour chaque projet immobilier
           </h1>
           <p className="mt-4 max-w-lg text-sm text-craie-100/75">
-            Vente, achat, location, gestion locative, investissement : ROC Immobilier Services
+            <strong>Vente, achat, location, gestion locative, investissement :</strong> ROC Immobilier Services
             réunit sous un même toit toute l'expertise nécessaire à votre projet à
-            Abidjan et dans sa région.
+            Abidjan et sur l'ensemble du territoire ivoirien.
           </p>
         </div>
       </div>
