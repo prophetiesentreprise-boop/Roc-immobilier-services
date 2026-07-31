@@ -12,6 +12,7 @@ const NAV = [
   { href: "/louer", label: "Louer" },
   { href: "/estimer", label: "Estimer mon bien" },
   { href: "/nos-services", label: "Nos services" },
+  { href: "/actualites", label: "Actualité immobilière" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -25,7 +26,7 @@ export function Header({ logoUrl }: { logoUrl: string | null }) {
           <Logo logoUrl={logoUrl} className="h-16 w-auto max-w-[220px] object-contain" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
           {NAV.map((item) => (
             <Link
               key={item.href}

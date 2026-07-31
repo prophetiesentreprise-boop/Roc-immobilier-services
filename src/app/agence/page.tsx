@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 import { getSiteSettings } from "@/lib/site-settings";
 import { getTeamMembers } from "@/lib/team";
 
-export const metadata = { title: "L'agence — ROC Immobilier Services" };
+export const metadata = { title: "L'agence — Roc Immobilier SErvices" };
 
 const VALEURS = [
   { icon: Heart, title: "Écoute", text: "Chaque projet est unique : nous prenons le temps de comprendre vos besoins réels avant de proposer une solution." },
@@ -29,16 +29,16 @@ export default async function AgencePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-ardoise via-ardoise/80 to-colombage/50" />
           </>
         ) : (
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #3340B6 0%, #FE5100 55%, #262F82 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #3340B6 0%, #FF5100 55%, #262F82 100%)" }} />
         )}
         <RooflineMotif className="absolute bottom-0 left-0 w-full h-20 text-craie-100/10" />
         <div className="container-roc relative">
           <p className="eyebrow text-craie-100/80">L'agence</p>
           <h1 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold sm:text-5xl">
-            Une agence indépendante, fondée sur des valeurs humaines
+            Une agence agréée, fondée sur des valeurs humaines
           </h1>
           <p className="mt-5 max-w-xl text-sm text-craie-100/85">
-            Depuis {siteConfig.since}, ROC Immobilier Services accompagne particuliers et
+            Depuis {siteConfig.since}, Roc Immobilier SErvices accompagne particuliers et
             investisseurs à {siteConfig.city} dans leurs projets de vente, d'achat, de
             location et de gestion locative — avec la même exigence à chaque étape.
           </p>
@@ -50,8 +50,8 @@ export default async function AgencePage() {
         <div className="container-roc grid grid-cols-2 gap-4 lg:grid-cols-4">
           <StatCard icon={Award} value="9 ans" label="d'expertise locale" accent="#5A66C9" />
           <StatCard icon={ShieldCheck} value="100%" label="biens vérifiés" accent="#4C8B57" />
-          <StatCard icon={Zap} value="24h" label="délai moyen de réponse" accent="#3340B6" />
-          <StatCard icon={Handshake} value="3" label="expertises réunies : vente, location, gestion" accent="#FE5100" />
+          <StatCard icon={Zap} value="72h" label="délai moyen de réponse" accent="#3340B6" />
+          <StatCard icon={Handshake} value="3" label="expertises réunies : vente, location, gestion" accent="#FF5100" />
         </div>
       </div>
 

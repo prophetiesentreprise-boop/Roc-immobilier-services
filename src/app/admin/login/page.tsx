@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
         <h1 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-semibold text-ardoise">
           Espace professionnel
         </h1>
-        <p className="mt-1 text-sm text-encre/60">Réservé à l'équipe ROC Immobilier Services.</p>
+        <p className="mt-1 text-sm text-encre/60">Réservé à l'équipe Roc Immobilier SErvices.</p>
 
         <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
           <div>

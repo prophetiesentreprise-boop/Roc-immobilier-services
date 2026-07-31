@@ -8,6 +8,7 @@ import { getFeaturedProperties } from "@/lib/properties";
 import { getSiteSettings } from "@/lib/site-settings";
 import { getBackgroundImages } from "@/lib/backgrounds";
 import { PhotoBackdrop } from "@/components/PhotoBackdrop";
+import { FeaturedPropertyBackdrop } from "@/components/FeaturedPropertyBackdrop";
 
 export default async function Home() {
   const [featured, settings, backgrounds] = await Promise.all([
@@ -48,10 +49,10 @@ export default async function Home() {
           </div>
 
           <div className="relative h-[420px] overflow-hidden rounded-sm border border-ligne bg-ardoise">
-            <PhotoBackdrop
-              photoUrl={backgrounds.home_hero}
+            <FeaturedPropertyBackdrop
+              photos={featured[0]?.photos ?? []}
+              fallbackPhotoUrl={backgrounds.home_hero}
               fallbackGradient="linear-gradient(150deg, #3340B6 0%, #262F82 75%)"
-              overlay="bg-ardoise/35"
             />
             <RooflineMotif className="absolute bottom-0 left-0 w-full h-2/3 text-craie/10" />
             <div className="absolute left-6 top-6 right-6 rounded-sm bg-craie-100/95 p-5">
@@ -98,8 +99,8 @@ export default async function Home() {
           <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
             <StatCard icon={Award} value="9 ans" label="d'expertise locale" accent="#5A66C9" />
             <StatCard icon={ShieldCheck} value="100%" label="biens vérifiés & agréés" accent="#4C8B57" />
-            <StatCard icon={Zap} value="24h" label="délai moyen de réponse" accent="#3340B6" />
-            <StatCard icon={Handshake} value="4/4" label="activités : vente, achat, location, gestion" accent="#FE5100" />
+            <StatCard icon={Zap} value="72h" label="délai moyen de réponse" accent="#3340B6" />
+            <StatCard icon={Handshake} value="4/4" label="activités : vente, achat, location, gestion" accent="#FF5100" />
           </div>
         </div>
       </section>

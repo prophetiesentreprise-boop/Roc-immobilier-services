@@ -1,17 +1,17 @@
 /**
- * Configuration centrale du site ROC Immobilier Services.
+ * Configuration centrale du site Roc Immobilier SErvices.
  * Modifiez les valeurs ci-dessous pour mettre à jour les informations
  * partout sur le site (en-tête, pied de page, contact, RDV, WhatsApp...).
  */
 export const siteConfig = {
-  agencyName: "ROC Immobilier Services",
+  agencyName: "Roc Immobilier SErvices",
   city: "Abidjan",
   country: "Côte d'Ivoire",
   since: "2016",
 
-  phoneDisplay: "+225 04 66 70 39",
-  phoneHref: "+22504667039",
-  whatsappNumber: "22504667039", // sans le "+", pour les liens wa.me
+  phoneDisplay: "+225 05 76 83 84 84",
+  phoneHref: "+2250576838484",
+  whatsappNumber: "2250576838484", // sans le "+", pour les liens wa.me
 
   // Deux adresses e-mail : affichées sur le site ET destinataires des
   // notifications automatiques (voir src/lib/notify.ts).

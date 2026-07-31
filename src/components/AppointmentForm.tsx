@@ -82,7 +82,7 @@ export function AppointmentForm() {
           <p>
             Votre demande de rendez-vous a été enregistrée pour le{" "}
             <strong>{lastPayload.appointment_date}</strong> à <strong>{lastPayload.appointment_time}</strong>.
-            Notre équipe la confirme sous 24h ouvrées.
+            Notre équipe la confirme sous 72h ouvrées.
           </p>
         </div>
         <a

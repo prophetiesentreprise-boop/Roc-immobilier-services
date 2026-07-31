@@ -26,7 +26,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ROC Immobilier Services — Agence immobilière à Abidjan",
+  title: "Roc Immobilier SErvices — Agence immobilière à Abidjan",
   description:
     "Vente, achat, location et gestion locative à Abidjan et en Côte d'Ivoire. Estimation gratuite en ligne, recherche de biens et accompagnement personnalisé.",
 };

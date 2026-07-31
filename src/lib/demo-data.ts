@@ -94,7 +94,7 @@ export const demoProperties: Property[] = [
     highlights: ["Meublé", "Climatisé", "Résidence sécurisée", "Disponible immédiatement"],
     status: "disponible",
     featured: false,
-    cover_color: "#FE5100",
+    cover_color: "#FF5100",
     photos: [],
     created_at: "2026-06-12T09:00:00Z",
   },

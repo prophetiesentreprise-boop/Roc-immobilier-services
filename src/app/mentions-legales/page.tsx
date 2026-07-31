@@ -1,6 +1,6 @@
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata = { title: "Mentions légales — ROC Immobilier Services" };
+export const metadata = { title: "Mentions légales — Roc Immobilier SErvices" };
 
 export default function MentionsLegalesPage() {
   return (
@@ -12,7 +12,7 @@ export default function MentionsLegalesPage() {
 
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-encre/80">
         <p>
-          <strong className="text-ardoise">Éditeur du site :</strong> ROC Immobilier Services — [forme
+          <strong className="text-ardoise">Éditeur du site :</strong> Roc Immobilier SErvices — [forme
           juridique à compléter], [capital social], [numéro RCCM à compléter] — {siteConfig.address.line1}, {siteConfig.address.line2}, {siteConfig.address.postal}.
         </p>
         <p>
@@ -30,8 +30,8 @@ export default function MentionsLegalesPage() {
         </p>
         <p>
           <strong className="text-ardoise">Protection des données (RGPD) :</strong> les
-          informations recueillies via les formulaires de ce site sont destinées à ROC
-          Immobilier pour le traitement de votre demande. Conformément au Règlement Général
+          informations recueillies via les formulaires de ce site sont destinées à Roc
+          Immobilier SErvices pour le traitement de votre demande. Conformément au Règlement Général
           sur la Protection des Données, vous disposez d'un droit d'accès, de rectification
           et de suppression de vos données, à exercer par e-mail à {siteConfig.emails[0]}.
         </p>

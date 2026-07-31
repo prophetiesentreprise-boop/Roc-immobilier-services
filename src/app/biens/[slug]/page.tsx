@@ -126,7 +126,7 @@ export default async function PropertyPage({ params }: PageProps) {
             Demander une visite
           </h2>
           <p className="mt-2 text-sm text-encre/65">
-            Un conseiller ROC Immobilier Services vous recontacte sous 24h pour organiser une visite
+            Un conseiller Roc Immobilier SErvices vous recontacte sous 72h pour organiser une visite
             ou répondre à vos questions.
           </p>
 

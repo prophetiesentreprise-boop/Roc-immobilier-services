@@ -70,7 +70,7 @@ de mots de passe si possible).
    ```
    git init
    git add .
-   git commit -m "Premier envoi du site ROC Immobilier Services"
+   git commit -m "Premier envoi du site Roc Immobilier SErvices"
    git branch -M main
    git remote add origin URL_DE_VOTRE_DEPOT
    git push -u origin main
@@ -247,7 +247,7 @@ mail professionnelles fonctionnent dans Outlook.
 4. Notez dans un document à part vos identifiants (Vercel, Supabase, Microsoft 365,
    registrar) dans un gestionnaire de mots de passe.
 
-**Bravo — le site ROC Immobilier Services est en ligne.**
+**Bravo — le site Roc Immobilier SErvices est en ligne.**
 
 ---
 

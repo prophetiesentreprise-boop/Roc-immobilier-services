@@ -1,12 +1,12 @@
 import { CheckCircle2, TrendingUp, Clock3, ShieldCheck } from "lucide-react";
 import { EstimateForm } from "@/components/EstimateForm";
 
-export const metadata = { title: "Estimer mon bien — ROC Immobilier Services" };
+export const metadata = { title: "Estimer mon bien — Roc Immobilier SErvices" };
 
 const STEPS = [
   ["1", "Vous décrivez votre bien", "Adresse, type de bien, surface, état général : deux minutes suffisent."],
   ["2", "Notre équipe analyse le marché", "Comparaison avec les transactions récentes dans votre quartier à Abidjan."],
-  ["3", "Vous êtes recontacté sous 24h", "Un conseiller vous présente la fourchette de prix et propose, si utile, une visite d'expertise sur place."],
+  ["3", "Vous êtes recontacté sous 72h", "Un conseiller vous présente la fourchette de prix et propose, si utile, une visite d'expertise sur place."],
 ];
 
 export default function EstimerPage() {
@@ -31,7 +31,7 @@ export default function EstimerPage() {
           <div className="grid gap-4 sm:grid-cols-3">
             {[
               [TrendingUp, "Analyse du marché local"],
-              [Clock3, "Réponse sous 24h"],
+              [Clock3, "Réponse sous 72h"],
               [ShieldCheck, "Sans engagement"],
             ].map(([Icon, label]: any) => (
               <div key={label} className="rounded-sm border border-ligne bg-craie-100 p-4 text-center">

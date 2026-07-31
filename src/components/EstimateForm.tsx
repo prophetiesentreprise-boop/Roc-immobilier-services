@@ -51,8 +51,8 @@ export function EstimateForm() {
       <div className="flex items-start gap-3 rounded-sm border border-vigne/40 bg-vigne/10 p-5 text-sm text-ardoise">
         <CheckCircle2 className="mt-0.5 shrink-0 text-vigne" size={20} />
         <p>
-          Merci ! Votre demande d'estimation a bien été transmise. Un conseiller ROC
-          Immobilier vous recontacte sous 24h ouvrées pour affiner l'analyse et
+          Merci ! Votre demande d'estimation a bien été transmise. Un conseiller Roc
+          Immobilier SErvices vous recontacte sous 72h ouvrées pour affiner l'analyse et
           convenir d'un rendez-vous d'expertise si besoin.
         </p>
       </div>

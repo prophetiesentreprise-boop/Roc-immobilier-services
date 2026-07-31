@@ -3,7 +3,7 @@ import { FiltersBar } from "@/components/FiltersBar";
 import { PropertyCard } from "@/components/PropertyCard";
 import { getProperties } from "@/lib/properties";
 
-export const metadata = { title: "Louer un bien — ROC Immobilier Services" };
+export const metadata = { title: "Louer un bien — Roc Immobilier SErvices" };
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;
@@ -34,7 +34,7 @@ export default async function LouerPage({ searchParams }: PageProps) {
         <span className="eyebrow shrink-0">Bon à savoir</span>
         <p>
           Préparez votre dossier locataire (pièce d'identité, justificatif de revenus,
-          caution) pour accélérer la réservation d'un bien qui vous plaît.
+          dépôt de garantie) pour accélérer la réservation d'un bien qui vous plaît.
           <a href="/contact" className="text-pinot underline"> Contactez-nous</a> pour
           connaître la liste exacte des pièces demandées.
         </p>

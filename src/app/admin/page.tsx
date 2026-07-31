@@ -38,7 +38,7 @@ export default async function AdminDashboard() {
       <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold text-ardoise">
         Tableau de bord
       </h1>
-      <p className="mt-1 text-sm text-encre/60">Vue d'ensemble de l'activité ROC Immobilier Services.</p>
+      <p className="mt-1 text-sm text-encre/60">Vue d'ensemble de l'activité Roc Immobilier SErvices.</p>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-sm border border-ligne bg-craie-100 p-6">

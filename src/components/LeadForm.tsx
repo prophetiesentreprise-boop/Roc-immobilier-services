@@ -51,8 +51,8 @@ export function LeadForm({
       <div className="flex items-start gap-3 rounded-sm border border-vigne/40 bg-vigne/10 p-5 text-sm text-ardoise">
         <CheckCircle2 className="mt-0.5 shrink-0 text-vigne" size={20} />
         <p>
-          Merci, votre demande a bien été transmise à notre équipe. Un conseiller ROC
-          Immobilier revient vers vous sous 24h ouvrées.
+          Merci, votre demande a bien été transmise à notre équipe. Un conseiller Roc
+          Immobilier SErvices revient vers vous sous 72h ouvrées.
         </p>
       </div>
     );

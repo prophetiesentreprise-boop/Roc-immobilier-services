@@ -5,7 +5,7 @@ import { getSiteSettings } from "@/lib/site-settings";
 import { getBackgroundImages } from "@/lib/backgrounds";
 import { PageLetterhead } from "@/components/PageLetterhead";
 
-export const metadata = { title: "Prendre rendez-vous — ROC Immobilier Services" };
+export const metadata = { title: "Prendre rendez-vous — Roc Immobilier SErvices" };
 
 export default async function RdvPage() {
   const [settings, backgrounds] = await Promise.all([getSiteSettings(), getBackgroundImages()]);

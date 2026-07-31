@@ -15,7 +15,7 @@ export function PageLetterhead({ logoUrl, eyebrow, tagline, photoUrl, showLogo =
     <div className="relative overflow-hidden py-12 text-craie-100">
       <PhotoBackdrop
         photoUrl={photoUrl}
-        fallbackGradient="linear-gradient(120deg, #262F82 0%, #FE5100 140%)"
+        fallbackGradient="linear-gradient(120deg, #262F82 0%, #FF5100 140%)"
         overlay="bg-ardoise/45"
       />
       <RooflineMotif className="absolute bottom-0 left-0 w-full h-14 text-craie-100/10" />

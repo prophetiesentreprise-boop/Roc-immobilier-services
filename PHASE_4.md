@@ -38,7 +38,7 @@ des icônes cliquables (appel, e-mail, WhatsApp) selon les coordonnées renseign
 ## 5. Logo agrandi
 
 Le logo dans l'en-tête du site est maintenant nettement plus grand et visible.
-Uploadez le vrai logo ROC Immobilier Services depuis `/admin/parametres` si ce
+Uploadez le vrai logo Roc Immobilier SErvices depuis `/admin/parametres` si ce
 n'est pas déjà fait.
 
 ## 6. Statistiques en cartes

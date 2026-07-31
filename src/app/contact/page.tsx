@@ -5,7 +5,7 @@ import { getSiteSettings } from "@/lib/site-settings";
 import { getBackgroundImages } from "@/lib/backgrounds";
 import { PageLetterhead } from "@/components/PageLetterhead";
 
-export const metadata = { title: "Contact — ROC Immobilier Services" };
+export const metadata = { title: "Contact — Roc Immobilier SErvices" };
 
 export default async function ContactPage() {
   const [settings, backgrounds] = await Promise.all([getSiteSettings(), getBackgroundImages()]);
@@ -25,7 +25,7 @@ export default async function ContactPage() {
           Parlons de <span className="italic text-pinot">votre projet</span>
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-encre/75">
-          Notre équipe vous répond sous 24h ouvrées. Pour une réponse plus rapide,
+          Notre équipe vous répond sous 72h ouvrées. Pour une réponse plus rapide,
           écrivez-nous directement sur WhatsApp.
         </p>
 
@@ -51,7 +51,7 @@ export default async function ContactPage() {
         </div>
 
         <a
-          href={whatsappLink("Bonjour ROC Immobilier Services, je souhaite avoir plus d'informations sur vos services.")}
+          href={whatsappLink("Bonjour Roc Immobilier SErvices, je souhaite avoir plus d'informations sur vos services.")}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-2 rounded-sm bg-vigne px-5 py-3 text-sm font-semibold text-craie-100 hover:opacity-90"
@@ -61,7 +61,7 @@ export default async function ContactPage() {
 
         <div className="mt-10 aspect-video overflow-hidden rounded-sm border border-ligne">
           <iframe
-            title={`Localisation de l'agence ROC Immobilier Services — ${fullAddressQuery}`}
+            title={`Localisation de l'agence Roc Immobilier SErvices — ${fullAddressQuery}`}
             className="h-full w-full"
             loading="lazy"
             src={mapEmbedUrl}

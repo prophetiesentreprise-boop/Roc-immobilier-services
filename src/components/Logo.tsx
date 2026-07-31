@@ -7,7 +7,7 @@ interface LogoProps {
 export function Logo({ logoUrl, className, variant = "dark" }: LogoProps) {
   if (logoUrl) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={logoUrl} alt="ROC Immobilier Services" className={className ?? "h-10 w-auto"} />;
+    return <img src={logoUrl} alt="Roc Immobilier SErvices" className={className ?? "h-10 w-auto"} />;
   }
 
   return (
@@ -16,7 +16,7 @@ export function Logo({ logoUrl, className, variant = "dark" }: LogoProps) {
         variant === "dark" ? "text-ardoise" : "text-craie-100"
       }`}
     >
-      ROC <span className="text-pinot">Immobilier</span> Services
+      Roc <span className="text-pinot">Immobilier</span> SErvices
     </span>
   );
 }

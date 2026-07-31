@@ -1,4 +1,4 @@
-# ROC Immobilier Services — site web + back-office
+# Roc Immobilier SErvices — site web + back-office
 
 Site vitrine et back-office pour une agence immobilière, construit avec :
 

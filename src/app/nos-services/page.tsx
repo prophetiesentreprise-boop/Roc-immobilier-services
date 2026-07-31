@@ -6,7 +6,7 @@ import { RooflineMotif } from "@/components/RooflineMotif";
 import { PhotoBackdrop } from "@/components/PhotoBackdrop";
 import { getBackgroundImages } from "@/lib/backgrounds";
 
-export const metadata = { title: "Nos services — ROC Immobilier Services" };
+export const metadata = { title: "Nos services — Roc Immobilier SErvices" };
 
 const SERVICES = [
   {
@@ -47,7 +47,7 @@ const SERVICES = [
     title: "Gestion locative",
     bgKey: "service_gestion",
     tag: "Propriétaires bailleurs",
-    color: "#FE5100",
+    color: "#FF5100",
     text:
       "Confiez la gestion quotidienne de votre bien : encaissement des loyers, relances, coordination des travaux et reporting mensuel clair et transparent.",
     points: ["Encaissement des loyers", "Relance des impayés", "Suivi des travaux", "Reporting mensuel"],
@@ -86,11 +86,11 @@ export default async function NosServicesPage() {
         <RooflineMotif className="absolute bottom-0 left-0 w-full h-20 text-craie-100/5" />
         <div className="container-roc relative">
           <p className="eyebrow text-colombage">Nos services</p>
-          <h1 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-4xl font-semibold">
+          <h1 className="mt-2 max-w-2xl font-[family-name:var(--font-display)] text-5xl font-semibold">
             Un <strong className="font-bold">accompagnement complet</strong> pour <strong className="font-bold">chaque projet</strong> immobilier
           </h1>
-          <p className="mt-4 max-w-lg text-sm text-craie-100/75">
-            Vente, achat, location, gestion locative, investissement : ROC Immobilier Services
+          <p className="mt-4 max-w-lg text-base text-craie-100/85">
+            Vente, achat, location, gestion locative, investissement : Roc Immobilier SErvices
             réunit sous un même toit toute l'expertise nécessaire à votre projet à
             Abidjan et dans sa région.
           </p>
@@ -116,18 +116,18 @@ export default async function NosServicesPage() {
 
               <div>
                 <p className="eyebrow">{service.tag}</p>
-                <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-ardoise">
+                <h2 className="mt-1 font-[family-name:var(--font-display)] text-3xl font-semibold text-ardoise">
                   {service.title}
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-encre/75">{service.text}</p>
-                <ul className="mt-4 grid grid-cols-2 gap-2 text-sm text-encre/75">
+                <p className="mt-3 text-base font-medium leading-relaxed text-encre/85">{service.text}</p>
+                <ul className="mt-4 grid grid-cols-2 gap-2 text-base font-medium text-encre/80">
                   {service.points.map((point) => (
                     <li key={point} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-pinot" /> {point}
                     </li>
                   ))}
                 </ul>
-                <Link href={service.href} className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-pinot">
+                <Link href={service.href} className="mt-5 inline-flex items-center gap-1 text-base font-semibold text-pinot">
                   En savoir plus <ArrowRight size={14} />
                 </Link>
               </div>
@@ -139,11 +139,11 @@ export default async function NosServicesPage() {
       <div className="container-roc pb-24">
         <div className="relative overflow-hidden rounded-sm bg-pinot px-8 py-14 text-center text-craie-100 sm:px-16">
           <PhotoBackdrop photoUrl={backgrounds.services_cta} fallbackGradient="none" overlay="bg-pinot/70" />
-          <h2 className="relative font-[family-name:var(--font-display)] text-2xl font-semibold">
+          <h2 className="relative font-[family-name:var(--font-display)] text-3xl font-semibold">
             Un projet en tête ? Parlons-en.
           </h2>
-          <p className="relative mx-auto mt-2 max-w-md text-sm text-craie-100/80">
-            Nos conseillers vous répondent sous 24h ouvrées pour définir ensemble la
+          <p className="relative mx-auto mt-2 max-w-md text-base text-craie-100/85">
+            Nos conseillers vous répondent sous 72h ouvrées pour définir ensemble la
             meilleure approche.
           </p>
           <Link href="/contact" className="btn-primary relative mt-6 bg-craie-100 text-pinot hover:bg-craie">

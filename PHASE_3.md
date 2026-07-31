@@ -22,11 +22,11 @@ npm run dev
 1. Connectez-vous sur `/admin/login`.
 2. Menu **Réglages du site**.
 3. Dans le bloc "Logo de l'agence", cliquez **Ajouter un logo** et sélectionnez le
-   fichier du logo ROC Immobilier Services (idéalement un PNG à fond transparent,
+   fichier du logo Roc Immobilier SErvices (idéalement un PNG à fond transparent,
    environ 400×120 px).
 4. Cliquez **Enregistrer les modifications**.
 5. Rafraîchissez la page d'accueil : le logo doit apparaître dans l'en-tête et le
-   pied de page, à la place du texte "ROC Immobilier Services".
+   pied de page, à la place du texte "Roc Immobilier SErvices".
 
 ## 4. Modifier les textes clés
 

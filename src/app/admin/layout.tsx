@@ -3,7 +3,7 @@ import { LayoutDashboard, Building2, Inbox, CalendarClock, Settings, Users, Imag
 import { SignOutButton } from "@/components/admin/SignOutButton";
 import { createClient } from "@/lib/supabase/server";
 
-export const metadata = { title: "Espace professionnel — ROC Immobilier Services" };
+export const metadata = { title: "Espace professionnel — Roc Immobilier SErvices" };
 
 function NavBadge({ count }: { count: number }) {
   if (!count) return null;

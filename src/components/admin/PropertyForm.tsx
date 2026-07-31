@@ -16,7 +16,7 @@ function slugify(text: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-const ACCENTS = ["#3340B6", "#FE5100", "#4C8B57", "#262F82"];
+const ACCENTS = ["#3340B6", "#FF5100", "#4C8B57", "#262F82"];
 
 export function PropertyForm({ property }: { property?: Property }) {
   const router = useRouter();
