@@ -72,7 +72,7 @@ export default async function AgencePage() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {[
-              [ShieldCheck, "Agréments", "Documents professionnels et garanties à jour, communiqués sur simple demande."],
+              [ShieldCheck, "Agréments", "Agence agréée N° 19-00046, agrément délivré le 14 mai 2019 (renouvelable)."],
               [Users, "Équipe locale", "Des conseillers spécialisés vente, location et gestion, basés à Abidjan."],
               [Award, `${siteConfig.since} → aujourd'hui`, "Une expertise construite sur le terrain, secteur par secteur."],
             ].map(([Icon, title, text]: any) => (

@@ -16,9 +16,9 @@ export default function MentionsLegalesPage() {
           juridique à compléter], [capital social], [numéro RCCM à compléter] — {siteConfig.address.line1}, {siteConfig.address.line2}, {siteConfig.address.postal}.
         </p>
         <p>
-          <strong className="text-ardoise">Carte professionnelle :</strong> [numéro et
-          préfecture de délivrance à compléter] — Garantie financière : [organisme et
-          montant à compléter].
+          <strong className="text-ardoise">Carte professionnelle :</strong> N° 19-00046,
+          délivrée le 14 mai 2019 (agrément renouvelable) — Garantie financière : [organisme
+          et montant à compléter].
         </p>
         <p>
           <strong className="text-ardoise">Directeur de la publication :</strong> [nom à

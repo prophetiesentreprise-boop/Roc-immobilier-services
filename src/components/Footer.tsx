@@ -52,7 +52,7 @@ export function Footer({ tagline, logoUrl }: FooterProps) {
         </div>
 
         <div className="mt-14 flex flex-col gap-2 border-t border-craie-100/15 pt-6 text-xs text-craie-100/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Roc Immobilier SErvices (R.I.SE) — Carte professionnelle [à compléter] · Garantie financière sur demande.</p>
+          <p>© {new Date().getFullYear()} Roc Immobilier SErvices (R.I.SE) — Carte professionnelle N° 19-00046 (agrément du 14 mai 2019, renouvelable) · Garantie financière sur demande.</p>
           <p>Site conçu pour Roc Immobilier SErvices.</p>
         </div>
       </div>

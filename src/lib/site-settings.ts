@@ -19,7 +19,7 @@ export interface SiteSettings {
 export const defaultSiteSettings: SiteSettings = {
   logo_url: null,
   agency_hero_photo_url: null,
-  hero_eyebrow: "Agence agréée [n° d'agrément à compléter] à Abidjan · depuis 2016",
+  hero_eyebrow: "Agence agréée N° 19-00046 · Abidjan · depuis 2016",
   hero_title: "L'immobilier ivoirien, conseillé avec exigence.",
   hero_subtitle:
     "Roc Immobilier SErvices accompagne particuliers et investisseurs à Abidjan et dans sa région : vente, achat, location et gestion locative, avec la même rigueur à chaque étape.",
@@ -32,7 +32,7 @@ export const defaultSiteSettings: SiteSettings = {
   agency_intro:
     "Roc Immobilier SErvices est née de la conviction qu'une agence immobilière doit avant tout être une agence de confiance : proche de ses clients, précise dans ses estimations, et rigoureuse dans le suivi de chaque dossier.",
   footer_tagline:
-    "Agence agréée [n° d'agrément à compléter], Abidjan, Côte d'Ivoire. Vente, achat, location et gestion locative depuis 2016.",
+    "Agence agréée N° 19-00046 (agrément du 14 mai 2019, renouvelable), Abidjan, Côte d'Ivoire. Vente, achat, location et gestion locative depuis 2016.",
 };
 
 export async function getSiteSettings(): Promise<SiteSettings> {

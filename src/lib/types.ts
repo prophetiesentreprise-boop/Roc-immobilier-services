@@ -80,3 +80,13 @@ export interface TeamMember {
   display_order: number;
   created_at: string;
 }
+
+export interface Article {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  published_at: string; // YYYY-MM-DD
+  created_at: string;
+}
