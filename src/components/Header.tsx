@@ -23,7 +23,7 @@ export function Header({ logoUrl }: { logoUrl: string | null }) {
     <header className="sticky top-0 z-50 border-b border-ligne bg-craie-100/95 backdrop-blur">
       <div className="container-roc flex h-24 items-center justify-between">
         <Link href="/" className="flex items-center">
-          <Logo logoUrl={logoUrl} className="h-16 w-auto max-w-[220px] object-contain" />
+          <Logo logoUrl={logoUrl} className="h-24 w-auto max-w-[220px] object-contain" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
