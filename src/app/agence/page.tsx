@@ -120,7 +120,7 @@ export default async function AgencePage() {
       <div className="container-roc py-20">
         <p className="eyebrow">Notre équipe</p>
         <h2 className="mt-2 max-w-lg font-[family-name:var(--font-display)] text-2xl font-semibold text-ardoise">
-          Des experts dédiés à chaque étape de votre projet
+          Une équipe à votre service
         </h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (

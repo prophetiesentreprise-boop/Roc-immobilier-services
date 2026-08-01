@@ -1,11 +1,11 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
-import { siteConfig, whatsappLink } from "@/lib/site-config";
+import { siteConfig, whatsappLink, mapEmbedUrl, fullAddressQuery } from "@/lib/site-config";
 import { getSiteSettings } from "@/lib/site-settings";
 import { getBackgroundImages } from "@/lib/backgrounds";
 import { PageLetterhead } from "@/components/PageLetterhead";
 
-export const metadata = { title: "Contact — ROC Immobilier Services" };
+export const metadata = { title: "Contact — Roc Immobilier SErvices" };
 
 export default async function ContactPage() {
   const [settings, backgrounds] = await Promise.all([getSiteSettings(), getBackgroundImages()]);
@@ -16,6 +16,7 @@ export default async function ContactPage() {
         photoUrl={backgrounds.letterhead}
         eyebrow="Contact"
         tagline="Nous sommes à votre écoute, à chaque étape de votre projet."
+        showLogo={false}
       />
       <div className="container-roc grid gap-14 py-16 lg:grid-cols-[1fr_1.1fr]">
       <div>
@@ -29,17 +30,28 @@ export default async function ContactPage() {
         </p>
 
         <div className="mt-8 space-y-5 text-sm text-encre/80">
-          <p className="flex items-center gap-3">
-            <MapPin size={18} className="text-pinot" />
-            {siteConfig.address.line1}, {siteConfig.address.line2} — {siteConfig.address.city}, {siteConfig.address.country}
+          <p className="flex items-start gap-3">
+            <MapPin size={18} className="mt-0.5 shrink-0 text-pinot" />
+            <span>
+              {siteConfig.address.line1}<br />
+              {siteConfig.emails[0]}<br />
+              {siteConfig.address.postal}
+            </span>
           </p>
           <p className="flex items-center gap-3"><Phone size={18} className="text-pinot" /> {siteConfig.phoneDisplay}</p>
-          <p className="flex items-center gap-3"><Mail size={18} className="text-pinot" /> {siteConfig.email}</p>
+          <div className="flex items-start gap-3">
+            <Mail size={18} className="mt-0.5 shrink-0 text-pinot" />
+            <span>
+              {siteConfig.emails.map((email) => (
+                <a key={email} href={`mailto:${email}`} className="block hover:text-pinot">{email}</a>
+              ))}
+            </span>
+          </div>
           <p className="flex items-center gap-3"><Clock size={18} className="text-pinot" /> {siteConfig.hours}</p>
         </div>
 
         <a
-          href={whatsappLink("Bonjour ROC Immobilier Services, je souhaite avoir plus d'informations sur vos services.")}
+          href={whatsappLink("Bonjour Roc Immobilier SErvices, je souhaite avoir plus d'informations sur vos services.")}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-2 rounded-sm bg-vigne px-5 py-3 text-sm font-semibold text-craie-100 hover:opacity-90"
@@ -49,14 +61,14 @@ export default async function ContactPage() {
 
         <div className="mt-10 aspect-video overflow-hidden rounded-sm border border-ligne">
           <iframe
-            title="Localisation de l'agence ROC Immobilier Services — Cocody, II Plateaux derrière la pharmacie LAS PALMAS - BAT I - Porte 106"
+            title={`Localisation de l'agence Roc Immobilier SErvices — ${fullAddressQuery}`}
             className="h-full w-full"
             loading="lazy"
-            src={siteConfig.mapEmbedUrl}
+            src={mapEmbedUrl}
           />
         </div>
         <p className="mt-2 text-xs text-encre/50">
-          Cocody, II Plateaux derrière la pharmacie LAS PALMAS - BAT I - Porte 106.
+          {siteConfig.address.line1}, {siteConfig.address.line2}.
         </p>
       </div>
 

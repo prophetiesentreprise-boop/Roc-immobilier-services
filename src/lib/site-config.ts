@@ -13,9 +13,9 @@ export const siteConfig = {
   phoneHref: "+2250576838484",
   whatsappNumber: "2250576838484", // sans le "+", pour les liens wa.me
 
-  // Deux adresses e-mail : affichées sur le site ET destinataires des
+  // Adresse e-mail unique : affichée sur le site ET destinataire des
   // notifications automatiques (voir src/lib/notify.ts).
-  emails: ["rocimmobilierservices@gmail.com", "info@rocimmobilierservices.com"],
+  emails: ["info@rocimmobilierservices.ci"],
 
   address: {
     line1: "Cocody - II Plateaux",
@@ -25,14 +25,14 @@ export const siteConfig = {
     country: "Côte d'Ivoire",
   },
 
-  hours: "Lun–Ven 9h–18h30 · Sam 9h–13h",
+  hours: "Lun–Ven 9h–17h · Sam 9h–12h",
 } as const;
 
-/** Adresse complète en une ligne, utilisée pour la recherche sur la carte. */
+/** Adresse complète en une ligne (utilisée dans les textes et le titre de la carte). */
 export const fullAddressQuery = `${siteConfig.address.line1}, ${siteConfig.address.line2}, ${siteConfig.address.city}, ${siteConfig.address.country}`;
 
-/** Carte Google Maps centrée automatiquement sur l'adresse ci-dessus (aucune clé API requise). */
-export const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(fullAddressQuery)}&z=16&output=embed`;
+/** Carte Google Maps centrée sur les coordonnées exactes de l'agence. */
+export const mapEmbedUrl = "https://maps.google.com/maps?q=5.3815026,-3.9943939&z=17&output=embed";
 
 export function whatsappLink(message: string) {
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
