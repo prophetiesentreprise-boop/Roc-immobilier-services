@@ -17,7 +17,7 @@ const SERVICES = [
     color: "#3340B6",
     text:
       "De l'estimation à la signature définitive, nous pilotons chaque étape de la vente de votre bien : diffusion ciblée, visites qualifiées, négociation et suivi jusqu'à l'acte notarié.",
-    points: ["Estimation gratuite", "Diffusion large de l'annonce", "Négociation par un expert", "Suivi du dossier notarial"],
+    points: ["Estimation", "Négociation", "Diffusion", "Suivi du dossier"],
     href: "/estimer",
   },
   {
@@ -28,7 +28,7 @@ const SERVICES = [
     color: "#4C8B57",
     text:
       "Nous recherchons pour vous le bien qui correspond réellement à votre projet — résidence principale ou investissement locatif — et vous accompagnons jusqu'à la remise des clés.",
-    points: ["Recherche personnalisée", "Visites organisées", "Analyse du marché local", "Accompagnement financement"],
+    points: ["Recherche personnalisée", "Visites organisées", "Analyse du marché local", "Accompagnement"],
     href: "/acheter",
   },
   {
@@ -39,18 +39,18 @@ const SERVICES = [
     color: "#262F82",
     text:
       "Sélection rigoureuse des candidats, constitution du dossier locataire, rédaction du bail et état des lieux : une mise en location sereine, des deux côtés.",
-    points: ["Vérification des dossiers", "Rédaction du bail", "État des lieux numérique", "Remise des clés"],
+    points: ["Vérification des dossiers", "Rédaction du bail", "État des lieux", "Remise des clés"],
     href: "/louer",
   },
   {
     icon: ShieldCheck,
     title: "Gestion locative",
     bgKey: "service_gestion",
-    tag: "Propriétaires bailleurs",
+    tag: "Propriétaires",
     color: "#FF5100",
     text:
-      "Confiez la gestion quotidienne de votre bien : encaissement des loyers, relances, coordination des travaux et reporting mensuel clair et transparent.",
-    points: ["Encaissement des loyers", "Relance des impayés", "Suivi des travaux", "Reporting mensuel"],
+      "Confiez la gestion quotidienne de votre bien : encaissement des loyers, relances, coordination des travaux et reporting clair et transparent.",
+    points: ["Encaissement des loyers", "Relance des impayés", "Suivi des travaux", "Reporting"],
     href: "/contact",
   },
   {
@@ -66,12 +66,12 @@ const SERVICES = [
   },
   {
     icon: Scale,
-    title: "Accompagnement juridique",
+    title: "Droit et fiscalité liés à l'immobilier",
     bgKey: "service_juridique",
     tag: "Tous nos clients",
     color: "#4C8B57",
     text:
-      "Nous coordonnons les démarches administratives et juridiques liées à votre projet (titres fonciers, actes, formalités notariales) avec nos partenaires de confiance.",
+      "Nous coordonnons les démarches légales liées à notre activité.",
     points: ["Vérification des titres", "Coordination notariale", "Conformité réglementaire", "Conseils personnalisés"],
     href: "/contact",
   },
@@ -115,7 +115,7 @@ export default async function NosServicesPage() {
               </div>
 
               <div>
-                <p className="eyebrow">{service.tag}</p>
+                <p className="text-sm font-bold uppercase tracking-[0.14em] text-pinot">{service.tag}</p>
                 <h2 className="mt-1 font-[family-name:var(--font-display)] text-3xl font-semibold text-ardoise">
                   {service.title}
                 </h2>

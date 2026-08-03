@@ -34,7 +34,7 @@ export default async function ContactPage() {
             <MapPin size={18} className="mt-0.5 shrink-0 text-pinot" />
             <span>
               {siteConfig.address.line1}<br />
-               {siteConfig.address.line2}<br />
+              {siteConfig.address.line2}<br />
               {siteConfig.address.postal}
             </span>
           </p>

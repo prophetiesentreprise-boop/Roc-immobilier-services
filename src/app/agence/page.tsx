@@ -122,13 +122,13 @@ export default async function AgencePage() {
         <h2 className="mt-2 max-w-lg font-[family-name:var(--font-display)] text-2xl font-semibold text-ardoise">
           Une équipe à votre service
         </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {team.map((member) => (
-            <div key={member.id} className="card-lift overflow-hidden rounded-sm border border-ligne bg-craie-100">
-              <div className="relative h-44 w-full overflow-hidden bg-craie">
+            <div key={member.id} className="card-lift flex items-start gap-5 rounded-sm border border-ligne bg-craie-100 p-5">
+              <div className="h-28 w-28 shrink-0 overflow-hidden rounded-full border border-ligne bg-craie">
                 {member.photo_url ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={member.photo_url} alt={member.full_name} className="h-full w-full object-cover" />
+                  <img src={member.photo_url} alt={member.full_name} className="h-full w-full object-cover object-top" />
                 ) : (
                   <div
                     className="h-full w-full"
@@ -136,7 +136,7 @@ export default async function AgencePage() {
                   />
                 )}
               </div>
-              <div className="p-5">
+              <div className="flex-1">
                 <p className="font-[family-name:var(--font-display)] font-semibold text-ardoise">{member.full_name}</p>
                 <p className="mt-1 text-sm text-encre/65">{member.role}</p>
 

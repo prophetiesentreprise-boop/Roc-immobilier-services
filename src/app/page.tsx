@@ -111,7 +111,7 @@ export default async function Home() {
           <div>
             <p className="eyebrow">Sélection</p>
             <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-ardoise">
-              Nos biens disponibles du moment
+              Nos biens coup de cœur
             </h2>
           </div>
           <Link href="/acheter" className="btn-ghost text-sm">
