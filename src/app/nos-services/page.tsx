@@ -72,7 +72,7 @@ const SERVICES = [
     color: "#4C8B57",
     text:
       "Nous coordonnons les démarches légales liées à notre activité.",
-    points: ["Vérification des titres", "Coordination notariale", "Conformité réglementaire", "Conseils personnalisés"],
+    points: ["Vérification", "Coordination", "Conformité réglementaire", "Conseils personnalisés"],
     href: "/contact",
   },
 ];
