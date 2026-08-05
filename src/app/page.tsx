@@ -56,7 +56,7 @@ export default async function Home() {
             />
             <RooflineMotif className="absolute bottom-0 left-0 w-full h-2/3 text-craie/10" />
             <div className="absolute left-6 top-6 right-6 rounded-sm bg-craie-100/95 p-5">
-              <p className="eyebrow">Biens du moment</p>
+              <p className="eyebrow">Bien du moment</p>
               <p className="mt-1 font-[family-name:var(--font-display)] text-lg font-semibold text-ardoise">
                 {featured[0]?.title ?? "Découvrez nos biens"}
               </p>
@@ -111,7 +111,7 @@ export default async function Home() {
           <div>
             <p className="eyebrow">Sélection</p>
             <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-ardoise">
-              Nos biens disponibles
+              Nos biens coup de cœur
             </h2>
           </div>
           <Link href="/acheter" className="btn-ghost text-sm">
@@ -180,9 +180,6 @@ export default async function Home() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-xs text-encre/45">
-          ..
-        </p>
       </section>
 
       {/* CTA ESTIMATION */}

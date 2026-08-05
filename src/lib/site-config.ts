@@ -31,6 +31,9 @@ export const siteConfig = {
 /** Adresse complète en une ligne (utilisée dans les textes et le titre de la carte). */
 export const fullAddressQuery = `${siteConfig.address.line1}, ${siteConfig.address.line2}, ${siteConfig.address.city}, ${siteConfig.address.country}`;
 
+/** Adresse publique du site, utilisée pour le sitemap et le fichier robots.txt. */
+export const siteUrl = "https://rocimmobilierservices.ci";
+
 /** Carte Google Maps centrée sur les coordonnées exactes de l'agence. */
 export const mapEmbedUrl = "https://maps.google.com/maps?q=5.3815026,-3.9943939&z=17&output=embed";
 

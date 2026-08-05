@@ -185,7 +185,7 @@ export default async function AgencePage() {
           ))}
         </div>
         <p className="mt-4 text-xs text-encre/50">
-          ..
+          Modifiable à tout moment depuis le back-office : Menu « Notre équipe ».
         </p>
       </div>
     </div>

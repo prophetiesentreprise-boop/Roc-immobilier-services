@@ -1,73 +1,43 @@
-import { MetadataRoute } from 'next'
-import { createClient } from './supabase/server'
+import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site-config";
+import { getProperties } from "@/lib/properties";
+import { getArticles } from "@/lib/articles";
 
-const BASE_URL = 'https://rocimmobilierservices.ci'
+const STATIC_ROUTES = [
+  { path: "", priority: 1 },
+  { path: "/agence", priority: 0.8 },
+  { path: "/acheter", priority: 0.9 },
+  { path: "/louer", priority: 0.9 },
+  { path: "/estimer", priority: 0.7 },
+  { path: "/nos-services", priority: 0.7 },
+  { path: "/actualites", priority: 0.6 },
+  { path: "/contact", priority: 0.6 },
+  { path: "/rdv", priority: 0.6 },
+  { path: "/mentions-legales", priority: 0.2 },
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // 1. Pages statiques du site
-  const staticRoutes = [
-    { path: '', changeFrequency: 'daily' as const, priority: 1.0 },
-    { path: 'agence', changeFrequency: 'monthly' as const, priority: 0.6 },
-    { path: 'acheter', changeFrequency: 'daily' as const, priority: 0.9 },
-    { path: 'louer', changeFrequency: 'daily' as const, priority: 0.9 },
-    { path: 'estimer', changeFrequency: 'monthly' as const, priority: 0.8 },
-    { path: 'nos-services', changeFrequency: 'monthly' as const, priority: 0.7 },
-    { path: 'actualites', changeFrequency: 'weekly' as const, priority: 0.7 },
-    { path: 'rdv', changeFrequency: 'monthly' as const, priority: 0.6 },
-    { path: 'contact', changeFrequency: 'monthly' as const, priority: 0.6 },
-    { path: 'mentions-legales', changeFrequency: 'yearly' as const, priority: 0.2 },
-  ].map((route) => ({
-    url: `${BASE_URL}/${route.path}`,
-    lastModified: new Date(),
-    changeFrequency: route.changeFrequency,
+  const [properties, articles] = await Promise.all([getProperties(), getArticles()]);
+
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
+    url: `${siteUrl}${route.path}`,
+    changeFrequency: "weekly",
     priority: route.priority,
-  }))
+  }));
 
-  const supabase = await createClient()
+  const propertyEntries: MetadataRoute.Sitemap = properties.map((property) => ({
+    url: `${siteUrl}/biens/${property.slug}`,
+    lastModified: property.created_at,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
 
-  // 2. Biens immobiliers (même client et même table que getPropertyBySlug)
-  let propertyRoutes: MetadataRoute.Sitemap = []
-  try {
-    if (supabase) {
-      const { data: properties, error } = await supabase.from('properties').select('*')
-      if (error) throw error
+  const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${siteUrl}/actualites/${article.slug}`,
+    lastModified: article.published_at,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
 
-      propertyRoutes = (properties ?? []).map((property: any) => ({
-        url: `${BASE_URL}/biens/${property.slug}`,
-        lastModified: property.updated_at
-          ? new Date(property.updated_at)
-          : property.created_at
-          ? new Date(property.created_at)
-          : new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.6,
-      }))
-    }
-  } catch (err) {
-    console.error('Erreur sitemap (properties):', err)
-  }
-
-  // 3. Articles d'actualité — adapte 'articles' au nom réel de ta table si besoin
-  let articleRoutes: MetadataRoute.Sitemap = []
-  try {
-    if (supabase) {
-      const { data: articles, error } = await supabase.from('articles').select('*')
-      if (error) throw error
-
-      articleRoutes = (articles ?? []).map((article: any) => ({
-        url: `${BASE_URL}/actualites/${article.slug}`,
-        lastModified: article.updated_at
-          ? new Date(article.updated_at)
-          : article.created_at
-          ? new Date(article.created_at)
-          : new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.5,
-      }))
-    }
-  } catch (err) {
-    console.error('Erreur sitemap (articles):', err)
-  }
-
-  return [...staticRoutes, ...propertyRoutes, ...articleRoutes]
+  return [...staticEntries, ...propertyEntries, ...articleEntries];
 }
