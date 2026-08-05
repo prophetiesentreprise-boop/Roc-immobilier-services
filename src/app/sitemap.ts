@@ -1,13 +1,7 @@
 import { MetadataRoute } from 'next'
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from './supabase/server'
 
 const BASE_URL = 'https://rocimmobilierservices.ci'
-
-// Utilise les mêmes variables d'environnement que le reste de ton app
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 1. Pages statiques du site
@@ -29,44 +23,48 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route.priority,
   }))
 
-  // 2. Biens immobiliers — adapte 'properties' et les noms de colonnes
-  //    à ta table réelle (ex: 'biens', 'listings'...)
+  const supabase = await createClient()
+
+  // 2. Biens immobiliers (même client et même table que getPropertyBySlug)
   let propertyRoutes: MetadataRoute.Sitemap = []
   try {
-    const { data: properties, error } = await supabase
-      .from('properties')
-      .select('slug, updated_at')
-      // décommente si tu as un statut (ex: ne montrer que les biens publiés/disponibles)
-      // .eq('status', 'published')
+    if (supabase) {
+      const { data: properties, error } = await supabase.from('properties').select('*')
+      if (error) throw error
 
-    if (error) throw error
-
-    propertyRoutes = (properties ?? []).map((property) => ({
-      url: `${BASE_URL}/biens/${property.slug}`,
-      lastModified: property.updated_at ? new Date(property.updated_at) : new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
-    }))
+      propertyRoutes = (properties ?? []).map((property: any) => ({
+        url: `${BASE_URL}/biens/${property.slug}`,
+        lastModified: property.updated_at
+          ? new Date(property.updated_at)
+          : property.created_at
+          ? new Date(property.created_at)
+          : new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.6,
+      }))
+    }
   } catch (err) {
     console.error('Erreur sitemap (properties):', err)
   }
 
-  // 3. Articles d'actualité — adapte 'articles' et les colonnes si besoin
+  // 3. Articles d'actualité — adapte 'articles' au nom réel de ta table si besoin
   let articleRoutes: MetadataRoute.Sitemap = []
   try {
-    const { data: articles, error } = await supabase
-      .from('articles')
-      .select('slug, updated_at')
-      // .eq('status', 'published')
+    if (supabase) {
+      const { data: articles, error } = await supabase.from('articles').select('*')
+      if (error) throw error
 
-    if (error) throw error
-
-    articleRoutes = (articles ?? []).map((article) => ({
-      url: `${BASE_URL}/actualites/${article.slug}`,
-      lastModified: article.updated_at ? new Date(article.updated_at) : new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    }))
+      articleRoutes = (articles ?? []).map((article: any) => ({
+        url: `${BASE_URL}/actualites/${article.slug}`,
+        lastModified: article.updated_at
+          ? new Date(article.updated_at)
+          : article.created_at
+          ? new Date(article.created_at)
+          : new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.5,
+      }))
+    }
   } catch (err) {
     console.error('Erreur sitemap (articles):', err)
   }
