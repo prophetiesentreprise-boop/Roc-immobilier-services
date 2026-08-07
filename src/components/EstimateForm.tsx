@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
+import { Honeypot } from "@/components/Honeypot";
 import { PhotoUploader } from "@/components/PhotoUploader";
 import { PROPERTY_CATEGORIES } from "@/lib/types";
 
@@ -31,6 +32,7 @@ export function EstimateForm() {
       phone: form.get("phone"),
       message: details,
       photos,
+      website: form.get("website"), // champ piège anti-spam
     };
 
     try {
@@ -61,6 +63,7 @@ export function EstimateForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
+      <Honeypot />
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="eyebrow mb-1 block">Nom complet *</label>

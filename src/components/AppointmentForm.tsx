@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Loader2, CheckCircle2, MessageCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/site-config";
+import { Honeypot } from "@/components/Honeypot";
 
 const TIME_SLOTS = ["09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"];
 const REASONS = [
@@ -55,6 +56,7 @@ export function AppointmentForm() {
       appointment_date: date,
       appointment_time: time,
       message: String(form.get("message") ?? ""),
+      website: String(form.get("website") ?? ""), // champ piège anti-spam
     };
 
     try {
@@ -99,6 +101,7 @@ export function AppointmentForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
+      <Honeypot />
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="eyebrow mb-1 block">Nom complet *</label>

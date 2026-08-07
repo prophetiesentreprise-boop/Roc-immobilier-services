@@ -4,7 +4,14 @@ import { notifyAgency } from "@/lib/notify";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { type, full_name, email, phone, message, property_id, photos } = body;
+  const { type, full_name, email, phone, message, property_id, photos, website } = body;
+
+  // Protection anti-spam : ce champ est invisible pour un vrai visiteur.
+  // S'il est rempli, on répond "ok" comme si tout allait bien, sans rien
+  // enregistrer — pour ne pas indiquer aux robots que leur envoi a échoué.
+  if (website) {
+    return NextResponse.json({ ok: true });
+  }
 
   if (!full_name || !email) {
     return NextResponse.json(

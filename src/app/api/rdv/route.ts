@@ -6,7 +6,11 @@ const MIN_HOURS_NOTICE = 48;
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { full_name, email, phone, reason, appointment_date, appointment_time, message } = body;
+  const { full_name, email, phone, reason, appointment_date, appointment_time, message, website } = body;
+
+  if (website) {
+    return NextResponse.json({ ok: true });
+  }
 
   if (!full_name || !email || !phone || !appointment_date || !appointment_time) {
     return NextResponse.json({ error: "Merci de remplir tous les champs obligatoires." }, { status: 400 });

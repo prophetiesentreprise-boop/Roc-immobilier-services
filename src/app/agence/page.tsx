@@ -92,7 +92,6 @@ export default async function AgencePage() {
             <li>— Transparence sur les prix, les délais et les frais.</li>
             <li>— Suivi personnalisé jusqu'à la signature définitive.</li>
             <li>— Confidentialité et protection des données clients.</li>
-            <li>— Conseil juridique et accompagnement fiscal.</li>
           </ul>
         </div>
       </div>
@@ -184,9 +183,6 @@ export default async function AgencePage() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-xs text-encre/50">
-          Modifiable à tout moment depuis le back-office : Menu « Notre équipe ».
-        </p>
       </div>
     </div>
   );

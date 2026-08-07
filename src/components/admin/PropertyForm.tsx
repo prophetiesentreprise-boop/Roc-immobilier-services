@@ -39,6 +39,7 @@ export function PropertyForm({ property }: { property?: Property }) {
     const form = new FormData(e.currentTarget);
     const title = String(form.get("title"));
     const highlightsRaw = String(form.get("highlights") ?? "");
+    const videosRaw = String(form.get("videos") ?? "");
 
     const payload = {
       title,
@@ -48,12 +49,13 @@ export function PropertyForm({ property }: { property?: Property }) {
       price: Number(form.get("price")),
       city: form.get("city"),
       postal_code: form.get("postal_code"),
-      surface_m2: Number(form.get("surface_m2")),
+      surface_m2: form.get("surface_m2") ? Number(form.get("surface_m2")) : null,
       rooms: Number(form.get("rooms")),
       bedrooms: Number(form.get("bedrooms")),
-      dpe: form.get("dpe"),
-      ges: form.get("ges"),
+      dpe: form.get("dpe") || null,
+      ges: form.get("ges") || null,
       description: form.get("description"),
+      videos: videosRaw.split("\n").map((v) => v.trim()).filter(Boolean),
       highlights: highlightsRaw.split(",").map((h) => h.trim()).filter(Boolean),
       status: form.get("status"),
       featured: form.get("featured") === "on",
@@ -133,8 +135,8 @@ export function PropertyForm({ property }: { property?: Property }) {
 
       <div className="grid gap-4 sm:grid-cols-3">
         <div>
-          <label className="eyebrow mb-1 block">Surface (m²) *</label>
-          <input type="number" name="surface_m2" required defaultValue={property?.surface_m2} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
+          <label className="eyebrow mb-1 block">Surface (m²)</label>
+          <input type="number" name="surface_m2" defaultValue={property?.surface_m2 ?? undefined} placeholder="Non renseignée" className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm" />
         </div>
         <div>
           <label className="eyebrow mb-1 block">Pièces</label>
@@ -149,13 +151,15 @@ export function PropertyForm({ property }: { property?: Property }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="eyebrow mb-1 block">DPE (énergie)</label>
-          <select name="dpe" defaultValue={property?.dpe ?? "D"} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm">
+          <select name="dpe" defaultValue={property?.dpe ?? ""} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm">
+            <option value="">Non renseigné</option>
             {["A", "B", "C", "D", "E", "F", "G"].map((l) => <option key={l} value={l}>{l}</option>)}
           </select>
         </div>
         <div>
           <label className="eyebrow mb-1 block">GES (climat)</label>
-          <select name="ges" defaultValue={property?.ges ?? "D"} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm">
+          <select name="ges" defaultValue={property?.ges ?? ""} className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm">
+            <option value="">Non renseigné</option>
             {["A", "B", "C", "D", "E", "F", "G"].map((l) => <option key={l} value={l}>{l}</option>)}
           </select>
         </div>
@@ -163,6 +167,20 @@ export function PropertyForm({ property }: { property?: Property }) {
 
       <div className="rounded-sm border border-ligne bg-craie p-4">
         <PhotoUploader photos={photos} onChange={setPhotos} folder="properties" />
+      </div>
+
+      <div>
+        <label className="eyebrow mb-1 block">Vidéos (un lien par ligne)</label>
+        <textarea
+          name="videos"
+          rows={3}
+          defaultValue={property?.videos?.join("\n")}
+          placeholder={"https://www.youtube.com/watch?v=...\nhttps://vimeo.com/..."}
+          className="w-full rounded-sm border border-ligne bg-white px-3 py-2.5 text-sm"
+        />
+        <p className="mt-1 text-xs text-encre/45">
+          Collez un lien YouTube, Vimeo, ou vers un fichier vidéo déjà hébergé (un par ligne).
+        </p>
       </div>
 
       <div>

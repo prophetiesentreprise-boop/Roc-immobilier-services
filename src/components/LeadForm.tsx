@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
+import { Honeypot } from "@/components/Honeypot";
 
 interface LeadFormProps {
   type: "estimation" | "contact" | "visite" | "alerte";
@@ -31,6 +32,7 @@ export function LeadForm({
         ? `Adresse du bien à estimer : ${form.get("address")}\n\n${form.get("message") ?? ""}`
         : form.get("message"),
       property_id: propertyId ?? null,
+      website: form.get("website"), // champ piège anti-spam
     };
 
     try {
@@ -60,6 +62,7 @@ export function LeadForm({
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
+      <Honeypot />
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="eyebrow mb-1 block">Nom complet *</label>

@@ -26,17 +26,18 @@ export interface Property {
   price: number; // FCFA ; loyer mensuel si location
   city: string;
   postal_code: string;
-  surface_m2: number;
+  surface_m2: number | null;
   rooms: number;
   bedrooms: number;
-  dpe: "A" | "B" | "C" | "D" | "E" | "F" | "G";
-  ges: "A" | "B" | "C" | "D" | "E" | "F" | "G";
+  dpe: "A" | "B" | "C" | "D" | "E" | "F" | "G" | null;
+  ges: "A" | "B" | "C" | "D" | "E" | "F" | "G" | null;
   description: string;
   highlights: string[];
   status: "disponible" | "sous_compromis" | "vendu" | "loue";
   featured: boolean;
   cover_color: string; // repli visuel tant qu'aucune photo n'est ajoutée
   photos: string[]; // URLs Supabase Storage
+  videos: string[]; // liens YouTube/Vimeo ou fichiers vidéo hébergés
   created_at: string;
 }
 

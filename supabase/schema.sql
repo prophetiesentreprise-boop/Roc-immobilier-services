@@ -14,17 +14,18 @@ create table if not exists properties (
   price numeric not null,
   city text not null,
   postal_code text not null,
-  surface_m2 numeric not null,
+  surface_m2 numeric,
   rooms integer not null default 0,
   bedrooms integer not null default 0,
-  dpe text not null default 'D' check (dpe in ('A','B','C','D','E','F','G')),
-  ges text not null default 'D' check (ges in ('A','B','C','D','E','F','G')),
+  dpe text check (dpe in ('A','B','C','D','E','F','G')),
+  ges text check (ges in ('A','B','C','D','E','F','G')),
   description text not null default '',
   highlights text[] not null default '{}',
   status text not null default 'disponible' check (status in ('disponible','sous_compromis','vendu','loue')),
   featured boolean not null default false,
   cover_color text not null default '#8B5A34',
   photos text[] not null default '{}',
+  videos text[] not null default '{}',
   created_at timestamptz not null default now()
 );
 

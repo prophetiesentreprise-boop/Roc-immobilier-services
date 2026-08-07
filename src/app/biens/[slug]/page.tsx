@@ -5,10 +5,23 @@ import { formatPrice } from "@/lib/format";
 import { RooflineMotif } from "@/components/RooflineMotif";
 import { LeadForm } from "@/components/LeadForm";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
+import { VideoEmbed } from "@/components/VideoEmbed";
 import { whatsappLink } from "@/lib/site-config";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const property = await getPropertyBySlug(slug);
+  if (!property) return { title: "Bien introuvable — Roc Immobilier SErvices" };
+
+  const kindLabel = property.kind === "vente" ? "à vendre" : "à louer";
+  return {
+    title: `${property.title} — ${kindLabel} à ${property.city} | Roc Immobilier SErvices`,
+    description: property.description.slice(0, 155),
+  };
 }
 
 export default async function PropertyPage({ params }: PageProps) {
@@ -57,7 +70,7 @@ export default async function PropertyPage({ params }: PageProps) {
 
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              [Ruler, `${property.surface_m2} m²`, "Surface"],
+              [Ruler, property.surface_m2 ? `${property.surface_m2} m²` : "Non renseignée", "Surface"],
               [DoorOpen, `${property.rooms}`, "Pièces"],
               [BedDouble, `${property.bedrooms}`, "Chambres"],
               [CalendarCheck, property.status === "disponible" ? "Oui" : "Non", "Disponible"],
@@ -74,7 +87,7 @@ export default async function PropertyPage({ params }: PageProps) {
             <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-ardoise">
               Description
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-encre/80">{property.description}</p>
+            <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-encre/80">{property.description}</p>
           </div>
 
           {property.highlights.length > 0 && (
@@ -92,32 +105,49 @@ export default async function PropertyPage({ params }: PageProps) {
             </div>
           )}
 
-          <div className="mt-10">
-            <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-ardoise">
-              Performance énergétique
-            </h2>
-            <div className="mt-4 flex gap-6">
-              <div className="flex items-center gap-3">
-                <span
-                  className="flex h-12 w-12 items-center justify-center rounded-sm font-[family-name:var(--font-data)] text-lg font-bold text-white"
-                  style={{ background: dpeColor[property.dpe] }}
-                >
-                  {property.dpe}
-                </span>
-                <p className="text-xs text-encre/60">DPE<br />(énergie)</p>
+          {property.videos && property.videos.length > 0 && (
+            <div className="mt-8">
+              <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-ardoise">
+                Vidéos
+              </h2>
+              <div className="mt-3 grid gap-4 sm:grid-cols-2">
+                {property.videos.map((url) => <VideoEmbed key={url} url={url} />)}
               </div>
-              <div className="flex items-center gap-3">
-                <span
-                  className="flex h-12 w-12 items-center justify-center rounded-sm font-[family-name:var(--font-data)] text-lg font-bold text-white"
-                  style={{ background: dpeColor[property.ges] }}
-                >
-                  {property.ges}
-                </span>
-                <p className="text-xs text-encre/60">GES<br />(climat)</p>
-              </div>
-              <Leaf className="ml-auto text-vigne" size={22} />
             </div>
-          </div>
+          )}
+
+          {(property.dpe || property.ges) && (
+            <div className="mt-10">
+              <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-ardoise">
+                Performance énergétique
+              </h2>
+              <div className="mt-4 flex gap-6">
+                {property.dpe && (
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="flex h-12 w-12 items-center justify-center rounded-sm font-[family-name:var(--font-data)] text-lg font-bold text-white"
+                      style={{ background: dpeColor[property.dpe] }}
+                    >
+                      {property.dpe}
+                    </span>
+                    <p className="text-xs text-encre/60">DPE<br />(énergie)</p>
+                  </div>
+                )}
+                {property.ges && (
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="flex h-12 w-12 items-center justify-center rounded-sm font-[family-name:var(--font-data)] text-lg font-bold text-white"
+                      style={{ background: dpeColor[property.ges] }}
+                    >
+                      {property.ges}
+                    </span>
+                    <p className="text-xs text-encre/60">GES<br />(climat)</p>
+                  </div>
+                )}
+                <Leaf className="ml-auto text-vigne" size={22} />
+              </div>
+            </div>
+          )}
         </div>
 
         <aside className="h-fit rounded-sm border border-ligne bg-craie-100 p-6">
