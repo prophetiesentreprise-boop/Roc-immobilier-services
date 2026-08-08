@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, Building2, Inbox, CalendarClock, Settings, Users, Image as ImageIcon, Newspaper, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Building2, Inbox, CalendarClock, Settings, Users, Image as ImageIcon, Newspaper, UserCog, ExternalLink } from "lucide-react";
 import { SignOutButton } from "@/components/admin/SignOutButton";
 import { createClient } from "@/lib/supabase/server";
 
@@ -38,6 +38,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: "/admin/actualites", label: "Actualité immobilière", icon: Newspaper, badge: 0 },
     { href: "/admin/arriere-plans", label: "Arrière-plans", icon: ImageIcon, badge: 0 },
     { href: "/admin/parametres", label: "Réglages du site", icon: Settings, badge: 0 },
+    { href: "/admin/utilisateurs", label: "Collaborateurs", icon: UserCog, badge: 0 },
+    { href: "/admin/mon-compte", label: "Mon compte", icon: Users, badge: 0 },
   ];
 
   return (

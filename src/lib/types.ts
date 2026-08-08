@@ -52,6 +52,11 @@ export interface Lead {
   property_id: string | null;
   photos: string[];
   status: "nouveau" | "en_cours" | "traite";
+  assigned_to: string | null;
+  feedback_rating: number | null;
+  feedback_comment: string | null;
+  feedback_disputed: boolean;
+  feedback_submitted_at: string | null;
 }
 
 export interface Appointment {
@@ -65,6 +70,7 @@ export interface Appointment {
   appointment_time: string; // ex. "10:00"
   message: string;
   status: "nouveau" | "confirme" | "annule";
+  assigned_to: string | null;
 }
 
 export interface TeamMember {

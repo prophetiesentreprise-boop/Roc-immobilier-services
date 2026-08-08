@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { Lead, TeamMember } from "@/lib/types";
 import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
 import { ForwardToWhatsApp } from "@/components/admin/ForwardToWhatsApp";
+import { AssignSelect } from "@/components/admin/AssignSelect";
 
 const TYPE_LABEL: Record<Lead["type"], string> = {
   estimation: "Estimation",
@@ -57,6 +58,10 @@ export default async function AdminLeadsPage() {
                 />
                 <LeadStatusSelect leadId={lead.id} status={lead.status} />
               </div>
+            </div>
+
+            <div className="mt-2">
+              <AssignSelect table="leads" id={lead.id} currentAssignee={lead.assigned_to} members={team} />
             </div>
 
             <div className="mt-3 flex flex-wrap gap-4 text-sm text-encre/70">

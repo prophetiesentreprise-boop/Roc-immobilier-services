@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { Appointment, TeamMember } from "@/lib/types";
 import { AppointmentStatusSelect } from "@/components/admin/AppointmentStatusSelect";
 import { ForwardToWhatsApp } from "@/components/admin/ForwardToWhatsApp";
+import { AssignSelect } from "@/components/admin/AssignSelect";
 
 export default async function AdminRdvPage() {
   const supabase = await createClient();
@@ -53,6 +54,10 @@ export default async function AdminRdvPage() {
                 />
                 <AppointmentStatusSelect id={rdv.id} status={rdv.status} />
               </div>
+            </div>
+
+            <div className="mt-2">
+              <AssignSelect table="appointments" id={rdv.id} currentAssignee={rdv.assigned_to} members={team} />
             </div>
 
             <p className="mt-2 text-sm text-encre/70">Motif : {rdv.reason}</p>
