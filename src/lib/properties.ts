@@ -26,8 +26,21 @@ export async function getProperties(filters: PropertyFilters = {}): Promise<Prop
     if (filters.maxPrice) query = query.lte("price", filters.maxPrice);
 
     const { data, error } = await query;
-    if (error || !data || data.length === 0) {
+
+    if (error) {
+      // Vraie erreur (mauvaise configuration...) : on affiche les biens de
+      // démonstration pour que le site reste présentable.
       results = demoProperties;
+    } else if (!data || data.length === 0) {
+      // Aucun bien ne correspond à ces filtres. Avant de conclure que la
+      // base est "vide" (site tout neuf, jamais configuré), on vérifie s'il
+      // existe au moins un bien réel ailleurs dans la table, filtres
+      // exclus. Si oui, ce résultat vide est légitime (ex. plus aucun bien
+      // "à vendre" pour l'instant) : on ne doit surtout pas le masquer avec
+      // les données de démonstration, qui donneraient l'impression qu'une
+      // suppression n'a pas fonctionné.
+      const { count } = await supabase.from("properties").select("*", { count: "exact", head: true });
+      results = count && count > 0 ? [] : demoProperties;
     } else {
       results = data as Property[];
       // On applique quand même les filtres en mémoire si jamais la requête
